@@ -11,12 +11,16 @@ app.use(function(req, res, next) {
 });
 
 app.get('/user/new', userController.new);
+app.get('/users/index', userController.all);
+app.get('/users/edit', userController.edit);
+app.get('/users/dashboard', userController.dashboard);
+app.get('/users/login', userController.login);
 
-app.route('/users')
+app.route('/api/users')
   .get(userController.index)
   .post(userController.create);
 
-app.route('/users/:id')
+app.route('/api/users/:id')
   .get(userController.show)
   .put(userController.update)
   .delete(userController.destroy);

@@ -1,6 +1,26 @@
 var User = require('mongoose').model('User');
 
 module.exports = {
+  login: function(req, res, next) {
+    res.render('users/login', {
+      title: 'Log In Page'
+    });
+  },
+  dashboard: function(req, res, next) {
+    res.render('users/dashboard', {
+      title: 'Dashboard'
+    });
+  },
+  all: function(req, res, next) {
+    res.render('users/index', {
+      title: 'All Users'
+    });
+  },
+  edit: function(req, res, next) {
+    res.render('users/edit', {
+      title: 'Edit Details'
+    });
+  },
   index: function(req, res, next) {
     User.find({}, function(err, users) {
       if (err) return next(err);

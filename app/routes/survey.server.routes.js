@@ -11,13 +11,16 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/surveys/new', surveyController.new);
+app.get('/surveys/take', surveyController.new);
+app.get('/surveys/index', surveyController.all);
+app.get('/surveys/create', surveyController.launch);
+app.get('/surveys/edit', surveyController.edit);
 
-app.route('/surveys')
+app.route('/api/surveys')
   .get(surveyController.index)
   .post(surveyController.create);
 
-app.route('/surveys/:id')
+app.route('/api/surveys/:id')
   .get(surveyController.show)
   .put(surveyController.update)
   .delete(surveyController.destroy);
