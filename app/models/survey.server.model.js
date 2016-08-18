@@ -8,8 +8,10 @@ var surveySchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    required: true}
+    required: true},
+  datetaken : { type : Date, default: Date.now }
 });
+
 
 surveySchema.virtual('npsCategory')
 .get(function()  {
