@@ -43,7 +43,7 @@ module.exports = {
   survey_by_id: function(req, res, next, id) {
     Survey.findOne({
         _id: id
-      }, 'name category',
+      }, '',
       function(err, survey) {
         if (err) {
           return next(err);

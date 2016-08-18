@@ -1,9 +1,12 @@
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
 
-var surveySchema = new Schema ({
-  name: String,
-  email: String
+var surveySchema = new mongoose.Schema({
+  brandName: String,
+  question: String,
+  score: Number,
+  user_id: Number
 });
 
-mongoose.model('Survey', surveySchema);
+var Survey = mongoose.model('Survey', surveySchema);
+
+module.exports = Survey;
