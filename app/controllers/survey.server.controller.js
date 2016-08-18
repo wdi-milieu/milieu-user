@@ -1,4 +1,4 @@
-var Survey = require('mongoose').model('Survey');
+var User = require('mongoose').model('Survey');
 
 module.exports = {
   index: function(req, res, next) {
