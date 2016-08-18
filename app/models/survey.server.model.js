@@ -1,14 +1,14 @@
 var mongoose = require('mongoose');
 
-var userkey = require('./user.server.model');
-var User = mongoose.model('User');
-
 var surveySchema = new mongoose.Schema({
   brandName: String,
   brandUsage: Number,
   npsScore: Number,
   npsReason: Number,
-  user:  [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}]
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true}
 });
 
 surveySchema.virtual('npsCategory')
@@ -27,5 +27,3 @@ surveySchema.set('timestamps', {});
 var Survey = mongoose.model('Survey', surveySchema);
 
 module.exports = Survey;
-
-// postedBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}, for reference if User.schema fail

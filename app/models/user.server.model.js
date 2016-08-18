@@ -1,8 +1,5 @@
 var mongoose = require('mongoose');
 
-var surveykey = require('./survey.server.model');
-var Survey = mongoose.model('Survey');
-
 var userSchema = new mongoose.Schema({
   firstName: {
     type: String,
@@ -52,7 +49,11 @@ var userSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  survey:  [{type: mongoose.Schema.Types.ObjectId, ref: 'Survey'}]
+  survey: {
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'Survey',
+    required: true
+  }
 });
 
 var User = mongoose.model('User', userSchema);
