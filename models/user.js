@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
 
+var Survey = mongoose.model('Survey');
+
 var userSchema = new mongoose.Schema({
   firstName: {
     type: String,
@@ -49,6 +51,7 @@ var userSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  survey: Survey.schema
 });
 
 var User = mongoose.model('User', userSchema);
