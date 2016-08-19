@@ -1,14 +1,29 @@
 var Survey = require('mongoose').model('Survey');
 
 module.exports = {
+  all: function (req, res, next) {
+    res.render('surveys/index', {
+    title: 'Add A Survey'
+  });
+},
+  launch: function (req, res, next) {
+    res.render('surveys/create', {
+      title: 'Make A Survey'
+    });
+  },
   index: function(req, res, next) {
     Survey.find({}, function(err, surveys) {
       if (err) return next(err);
       res.json(surveys);
     });
   },
+  edit: function (req, res, next) {
+    res.render('surveys/edit', {
+      title: 'Edit a Survey'
+    });
+  },
   new: function(req, res) {
-    res.render('surveys/new', {
+    res.render('surveys/take', {
       title: 'Add A Survey'
     });
   },
@@ -43,7 +58,7 @@ module.exports = {
   survey_by_id: function(req, res, next, id) {
     Survey.findOne({
         _id: id
-      }, 'name category',
+      }, '',
       function(err, survey) {
         if (err) {
           return next(err);
