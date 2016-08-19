@@ -22,8 +22,10 @@ module.exports = {
     });
   },
   index: function(req, res, next) {
-    User.find({}, function(err, users) {
-      if (err) return next(err);
+    User.find({})
+    .populate('survey')
+    .exec(function(err, users) {
+      if (err) res.status(400).send(err);
       res.json(users);
     });
   },
