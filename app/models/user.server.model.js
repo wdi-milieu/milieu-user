@@ -49,11 +49,11 @@ var userSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  survey: {
-    type: mongoose.Schema.Types.ObjectId, 
+  survey: [{
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Survey',
     required: true
-  }
+  }]
 });
 
 var User = mongoose.model('User', userSchema);

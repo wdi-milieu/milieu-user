@@ -5,10 +5,11 @@ var surveySchema = new mongoose.Schema({
   brandUsage: Number,
   npsScore: Number,
   npsReason: Number,
-  user: {
+  user: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    required: true},
+    required: true
+  }],
   datetaken : { type : Date, default: Date.now }
 });
 
