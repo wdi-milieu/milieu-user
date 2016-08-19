@@ -21,7 +21,8 @@
     "mongoose": "^4.5.9",
     "morgan": "^1.7.0",
     "request": "^2.74.0",
-    "supertest": "^2.0.0"
+    "supertest": "^2.0.0",
+    "survey-knockout-bootstrap": "^0.9.10"
   },
   "devDependencies": {
     "jasmine-node": "^1.14.5",
