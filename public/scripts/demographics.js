@@ -1,108 +1,166 @@
-var demographics = new Survey.Survey({
-  pages: [{
-    name: "page1",
-    questions: [{
-      type: "dropdown",
-      choices: [{
-        value: "1",
+var question_arr = [
+  {
+    label: "First Name",
+    id: "firstName",
+    type: "textfield"
+  },
+  {
+    label: "Last Name",
+    id: "lastName",
+    type: "textfield"
+  },
+  {
+    label: "Email",
+    id: "email",
+    type: "textfield"
+  },
+  {
+    label: "Password",
+    id: "password",
+    type: "textfield"
+  },
+  {
+    label: "Gender",
+    id: "gender",
+    type: "select",
+    options: [
+      {
+        value: 0,
+        text: "-- Please select one --"
+      },
+      {
+        value: 1,
         text: "Male"
-      }, {
-        value: "2",
+      },
+      {
+        value: 2,
         text: "Female"
-      }, {
-        value: "3",
+      },
+      {
+        value: 3,
         text: "Neither"
-      }],
-      name: "question1",
-      title: "Gender:"
-    }]
-  }, {
-    name: "page2",
-    questions: [{
-      type: "dropdown",
-      choices: [{
-        value: "1",
+      }
+    ]
+  },
+  {
+    label: "Age Group",
+    id: "age",
+    type: "select",
+    options: [
+      {
+        value: 0,
+        text: "-- Please select one --"
+      },
+      {
+        value: 1,
         text: "16 - 35 years old"
-      }, {
-        value: "2",
+      },
+      {
+        value: 2,
         text: "36 - 50 years old"
-      }, {
-        value: "3",
+      },
+      {
+        value: 3,
         text: "Above 50 years old"
-      }],
-      name: "question2",
-      title: "Age Group:"
-    }]
-  }, {
-    name: "page3",
-    questions: [{
-      type: "dropdown",
-      choices: [{
-        value: "1",
+      }
+    ]
+  },
+  {
+    label: "Ethnicity",
+    id: "ethnicity",
+    type: "select",
+    options: [
+      {
+        value: 0,
+        text: "-- Please select one --"
+      },
+      {
+        value: 1,
         text: "Chinese"
-      }, {
-        value: "2",
+      },
+      {
+        value: 2,
         text: "Malay"
-      }, {
-        value: "3",
+      },
+      {
+        value: 3,
         text: "Indian"
-      }, {
-        value: "4",
+      },
+      {
+        value: 4,
         text: "Others"
-      }],
-      name: "question3",
-      title: "Ethnicity:"
-    }]
-  }, {
-    name: "page4",
-    questions: [{
-      type: "dropdown",
-      choices: [{
-        value: "1",
-        text: "Below SGD 3,000"
-      }, {
-        value: "2",
-        text: "SGD 3,000 - 5,999"
-      }, {
-        value: "3",
-        text: "SGD 6,000 - 14,999"
-      }, {
-        value: "4",
-        text: "SGD 15,000 or above"
-      }],
-      name: "question4",
-      title: "Current monthly household income (please add the incomes of everyone in the household):"
-    }]
-  }, {
-    name: "page5",
-    questions: [{
-      type: "dropdown",
-      choices: [{
-        value: "1",
+      }
+    ]
+  },
+  {
+    label: "Current Monthly Household Income",
+    id: "householdIncome",
+    type: "select",
+    options: [
+      {
+        value: 0,
+        text: "-- Please select one --"
+      },
+      {
+        value: 1,
+        text: "Below SGD3,000"
+      },
+      {
+        value: 2,
+        text: "SGD3,000 - SGD5,999"
+      },
+      {
+        value: 3,
+        text: "SGD6,000 - SGD14,999"
+      },
+      {
+        value: 4,
+        text: "SGD15,000 and above"
+      }
+    ]
+  },
+  {
+    label: "Political Affiliation: Which political party would you vote for?",
+    id: "politicalParty",
+    type: "select",
+    options: [
+      {
+        value: 0,
+        text: "-- Please select one --"
+      },
+      {
+        value: 1,
         text: "People's Action Party"
-      }, {
-        value: "2",
+      },
+      {
+        value: 2,
         text: "Opposition Party"
-      }],
-      name: "question5",
-      title: "Which political party would you vote for? (Your response will be kept entirely confidential)"
-    }]
-  }, {
-    name: "page6",
-    questions: [{
-      type: "dropdown",
-      choices: ["one", {
-        value: "two",
-        text: "second value"
-      }, {
-        value: "three",
-        text: "third value"
-      }],
-      name: "question6"
-    }]
-  }]
-});
-survey.onComplete.add(function(s) {
-  alert("The results are:" + JSON.stringify(s.data));
-});
-survey.render("demographics");
+      }
+    ]
+  },
+  {
+    label: "How much time do you spend online daily for personal consumption? Please consider both desktop and mobile consumption.",
+    id: "householdIncome",
+    type: "select",
+    options: [
+      {
+        value: 0,
+        text: "-- Please select one --"
+      },
+      {
+        value: 1,
+        text: "Less than 2 hours"
+      },
+      {
+        value: 2,
+        text: "Between 2 hours and 5 hours"
+      },
+      {
+        value: 3,
+        text: "More than 5 hours"
+      }
+    ]
+  }
+];
+
+module.exports = question_arr;

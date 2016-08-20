@@ -1,4 +1,5 @@
 var User = require('mongoose').model('User');
+var question_arr = require('../../public/scripts/demographics');
 
 module.exports = {
   login: function(req, res, next) {
@@ -27,16 +28,23 @@ module.exports = {
       res.json(users);
     });
   },
+
+
+
   new: function(req, res) {
+
     res.render('users/new', {
-      title: 'Sign Up'
+      title: 'Sign Up',
+      questions: question_arr
     });
   },
+
+
   create: function(req, res, next) {
     var user = new User(req.body);
     user.save(function(err) {
       if (err) return next(err);
-      res.json(user);
+      res.redirect('/surveys/index');
     });
   },
   show: function(req, res) {

@@ -2,7 +2,7 @@
 
 <h1>Sign Up Today!</h1>
 
-<form method="post" action="/users">
+<!-- <form method="post" action="/users">
   <label for="user_title">First Name</label><br>
   <input type="text" firstname="firstName" id="user_firstName" placeholder="Example: John"><br>
   <label for="user_title">Last Name</label><br>
@@ -14,4 +14,38 @@
 
 
   <button>Sign Up!</button><br>
-</form>
+</form> -->
+
+<div id="signup_demog">
+  <form class="" action="/users" method="post">
+    <% questions.forEach(function(elem, index){ %>
+      <% if(elem.type == "textfield") { %>
+
+        <label>
+          <%= elem.label %>
+        </label>
+        <input type="text" id="<%= elem.label %>" placeholder="<%= elem.label %>">
+
+      <% } else { %>
+
+        <label>
+          <%= elem.label %>
+        </label>
+        <select>
+          <% elem.options.forEach(function(option, index){ %>
+
+            <option value=< %=o ption.value%> >
+              <%= option.text %>
+            </option>
+
+          <% }) %>
+        </select>
+
+      <% } %>
+    <% }) %>
+
+    <br />
+    <input type="submit" name="submit" value="">Submit</input>
+
+  </form>
+</div>
