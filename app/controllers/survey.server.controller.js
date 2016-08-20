@@ -1,5 +1,31 @@
 var Survey = require('mongoose').model('Survey');
 
+var brandTotalCount = 0;
+var promotersCount = 0;
+var detractorsCount = 0;
+
+Survey.aggregate([
+  { $group: { _id: "$brandName", total: { $sum: 1} }},
+  { $sort: { '_id': 1 }}
+], function(err, result){
+  brandTotalCount = result;
+});
+
+Survey.aggregate([
+  { $match: { npsScore: { $gte: 9 }}},
+  { $group: { _id: "$brandName", promoters: { $sum: 1} }},
+  { $sort: { '_id': 1 }}
+], function(err, result){
+  promotersCount = result;
+});
+
+Survey.aggregate([
+  { $match: { npsScore: { $lte: 6 }}},
+  { $group: { _id: "$brandName", detractors: { $sum: 1} }},
+  { $sort: { '_id': 1 }}
+], function(err, result){
+    detractorsCount = result;
+});
 
 module.exports = {
   all: function (req, res, next) {
@@ -13,22 +39,25 @@ module.exports = {
     });
   },
   index: function(req, res, next) {
-    Survey.find({})
-    .populate('user')
-    .exec(function(err, surveys) {
-      if (err) res.status(400).send(err);
-      res.json(surveys);
-    });
-
+    console.log(brandTotalCount.concat(promotersCount).concat(detractorsCount));
+    // console.log(promotersCount[0]);
+    // console.log(detractorsCount[0]);
   },
+  // Survey.find({})
+  // .populate('user')
+  // .exec(function(err, surveys) {
+  //   if (err) res.status(400).send(err);
+  //   res.json(surveys);
+  // });
 
   // Survey.aggregate([
-  //   { $group: { _id: "$npsScore", total: { $sum: "$npsScore"}}}
+  //   { $group: { _id: {$toUpper: "$brandName"}, total: { $avg: "$npsScore"}}}
   // ], function(err, result){
   //   if (err) next(err);
   //
   //   res.json(result);
   // });
+
 
 
 
