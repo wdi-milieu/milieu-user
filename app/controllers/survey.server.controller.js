@@ -19,7 +19,17 @@ module.exports = {
       if (err) res.status(400).send(err);
       res.json(surveys);
     });
+
   },
+
+  // Survey.aggregate([
+  //   { $group: { _id: "$npsScore", total: { $sum: "$npsScore"}}}
+  // ], function(err, result){
+  //   if (err) next(err);
+  //
+  //   res.json(result);
+  // });
+
 
 
   edit: function (req, res, next) {
