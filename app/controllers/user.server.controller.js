@@ -1,5 +1,5 @@
 var User = require('mongoose').model('User');
-var question_arr = require('../../public/scripts/demographics');
+var demographics_arr = require('../../public/scripts/demographics');
 
 module.exports = {
   login: function(req, res, next) {
@@ -35,7 +35,7 @@ module.exports = {
 
     res.render('users/new', {
       title: 'Sign Up',
-      questions: question_arr
+      demographics: demographics_arr
     });
   },
 
