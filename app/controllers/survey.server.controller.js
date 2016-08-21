@@ -3,7 +3,10 @@ var Survey = require('mongoose').model('Survey');
 var totalCount, promotersCount, detractorsCount, npsReason;
 
 Survey.aggregate([
-  { $group: { _id: "$brandName", total: { $sum: 1 } }},
+  { $group: {
+    _id: "$brandName",
+    total: { $sum: 1 }
+  }},
   { $sort: { '_id': 1 }}
 ], function(err, result){
   totalCount = result;
@@ -11,7 +14,10 @@ Survey.aggregate([
 
 Survey.aggregate([
   { $match: { npsScore: { $gte: 9 }}},
-  { $group: { _id: "$brandName", promoters: { $sum: 1 } }},
+  { $group: {
+    _id: "$brandName",
+    promoters: { $sum: 1 }
+  }},
   { $sort: { '_id': 1 }}
 ], function(err, result){
   promotersCount = result;
@@ -19,14 +25,21 @@ Survey.aggregate([
 
 Survey.aggregate([
   { $match: { npsScore: { $lte: 6 }}},
-  { $group: { _id: "$brandName", detractors: { $sum: 1 } }},
+  { $group: {
+    _id: "$brandName",
+    detractors: { $sum: 1 }
+  }},
   { $sort: { '_id': 1 }}
 ], function(err, result){
     detractorsCount = result;
 });
 
 Survey.aggregate([
-  { $group: { _id: { brand:"$brandName", npsReason: "$npsReason" }, "count": { $sum: "$npsReason" }}}
+  { $group: {
+    _id: { brandName: "$brandName", npsReason:"$npsReason" },
+    count: { $sum: 1 }
+  }},
+  { $sort: { '_id': 1 }}  
 ], function(err, result){
     npsReason = result;
 });
