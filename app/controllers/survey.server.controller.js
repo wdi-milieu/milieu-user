@@ -1,6 +1,7 @@
 var Survey = require('mongoose').model('Survey');
+var _ = require('underscore');
 
-var totalCount, promotersCount, detractorsCount, npsReason;
+var totalCount, promotersCount, detractorsCount, mergeCount, npsReason;
 
 Survey.aggregate([
   { $group: {
@@ -39,12 +40,12 @@ Survey.aggregate([
     _id: { brandName: "$brandName", npsReason:"$npsReason" },
     count: { $sum: 1 }
   }},
-  { $sort: { '_id': 1 }}  
+  { $sort: { '_id': 1 }}
 ], function(err, result){
     npsReason = result;
 });
 
-  // { $group: { _id: { brandName: "$brandName", npsReason:"$npsReason", }, score: { $sum: "$npsReason" }, count: { $sum: 1 }}}
+
 
 module.exports = {
   all: function (req, res, next) {
@@ -66,12 +67,24 @@ module.exports = {
     // });
 
     res.json([
-      {npsReason},
-      {totalCount},
-      {promotersCount},
-      {detractorsCount}
+      _.extend({}, totalCount[0], promotersCount[0], detractorsCount[0]),
+      _.extend({}, totalCount[1], promotersCount[1], detractorsCount[1]),
+      _.extend({}, totalCount[2], promotersCount[2], detractorsCount[2]),
+      _.extend({}, totalCount[3], promotersCount[3], detractorsCount[3]),
+      _.extend({}, totalCount[4], promotersCount[4], detractorsCount[4]),
+      _.extend({}, totalCount[5], promotersCount[5], detractorsCount[5]),
+      _.extend({}, totalCount[6], promotersCount[6], detractorsCount[6]),
+      _.extend({}, totalCount[7], promotersCount[7], detractorsCount[7]),
+      _.extend({}, totalCount[8], promotersCount[8], detractorsCount[8]),
     ]);
   },
+
+
+  // {npsReason},
+  // { mergeCount },
+  // { totalCount },
+  // { promotersCount },
+  // { detractorsCount }
 
   // Survey.aggregate([
   //   { $group: { _id: {$toUpper: "$brandName"}, total: { $avg: "$npsScore"}}}
