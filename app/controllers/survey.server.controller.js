@@ -39,8 +39,29 @@ Survey.aggregate([
 
 Survey.aggregate([
   { $group: {
-    _id: { brandName: "$brandName", npsReason:"$npsReason" },
+    _id: {
+      brandName: "$brandName",
+      npsReason:"$npsReason"
+    },
     count: { $sum: 1 }
+  }},
+  { $group: {
+    _id: "$_id.brandName",
+    npsReason1: { $sum: { $cond: [
+      { $eq: [ "$_id.npsReason", 1 ]},
+      "$count",
+      0
+    ]}},
+    npsReason2: { $sum: { $cond: [
+      { $eq: [ "$_id.npsReason", 2 ]},
+      "$count",
+      0
+    ]}},
+    npsReason3: { $sum: { $cond: [
+      { $eq: [ "$_id.npsReason", 3 ]},
+      "$count",
+      0
+    ]}},
   }},
   { $sort: { '_id': 1 }}
 ], function(err, result){
@@ -62,19 +83,24 @@ module.exports = {
   },
   index: function(req, res, next) {
     for (var i = 0; i < totalCount.length; i++) {
-      mergedData.push(_.extend({}, totalCount[i], promotersCount[i], detractorsCount[i]));
+      mergedData.push(_.extend({}, totalCount[i], promotersCount[i], detractorsCount[i], npsReason[i] ));
     }
 
     for(var j = 0; j < totalCount.length; j++)  {
-      var index = mergedData[j];
+      var brandIndex = mergedData[j];
 
-      apiData.push({"brand": index._id, "NPS Score": (index.promoters/index.total * 100) - (index.detractors/index.total * 100) });
+      apiData.push({"brand": brandIndex._id,
+      "NPS Score": (brandIndex.promoters/brandIndex.total * 100) - (brandIndex.detractors/brandIndex.total * 100),
+      "NPS Reason1": (brandIndex.npsReason1/brandIndex.total * 100),
+      "NPS Reason2": (brandIndex.npsReason2/brandIndex.total * 100),
+      "NPS Reason3": (brandIndex.npsReason3/brandIndex.total * 100),
+     });
     }
 
     res.json({
+      // npsReason,
       apiData,
       mergedData,
-      npsReason
     });
   },
 
