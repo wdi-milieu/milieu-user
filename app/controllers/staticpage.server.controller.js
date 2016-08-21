@@ -17,9 +17,3 @@ module.exports.renderContact = function(req, res) {
       title: 'Contact'
     });
   };
-
-module.exports.renderSignup = function(req, res) {
-    res.render('static_pages/signup', {
-      title: 'Signup'
-    });
-  };

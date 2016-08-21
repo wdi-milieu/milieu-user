@@ -1,17 +1,27 @@
-<h4> This is the new user sign up page</h4>
 
-<h1>Sign Up Today!</h1>
+<div class="container-fluid main">
 
-<form method="post" action="/users">
-  <label for="user_title">First Name</label><br>
-  <input type="text" firstname="firstName" id="user_firstName" placeholder="Example: John"><br>
-  <label for="user_title">Last Name</label><br>
-  <input type="text" lastname="lastName" id="user_lastName" placeholder="Example: Smith"><br>
-  <label for="user_title">Email</label><br>
-  <input type="text" email="email" id="user_email" placeholder="john.smith@email.com"><br>
-  <label for="user_title">Password</label><br>
-  <input type="password" password="password" id="user_password"><br>
+  <div>
+    <h3  class="title">SIGN UP</h3>
+  </div>
+  <hr class="hr">
 
+  <form>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter name">
+    </div>
 
-  <button>Sign Up!</button><br>
-</form>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="text" class="form-control" id="email" placeholder="Enter email">
+    </div>
+
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+    </div>
+
+    <button type="submit" class="btn btn-default">Sign Up!</button>
+  </form>
+</div>
