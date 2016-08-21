@@ -1,7 +1,7 @@
 var Survey = require('mongoose').model('Survey');
 var _ = require('underscore');
 
-var totalCount, promotersCount, detractorsCount, mergeCount, npsReason;
+var totalCount, promotersCount, detractorsCount, mergedData, npsReason;
 
 Survey.aggregate([
   { $group: {
@@ -65,8 +65,7 @@ module.exports = {
     //   if (err) res.status(400).send(err);
     //   res.json(surveys);
     // });
-
-    res.json([
+    mergedData = [
       _.extend({}, totalCount[0], promotersCount[0], detractorsCount[0]),
       _.extend({}, totalCount[1], promotersCount[1], detractorsCount[1]),
       _.extend({}, totalCount[2], promotersCount[2], detractorsCount[2]),
@@ -76,6 +75,12 @@ module.exports = {
       _.extend({}, totalCount[6], promotersCount[6], detractorsCount[6]),
       _.extend({}, totalCount[7], promotersCount[7], detractorsCount[7]),
       _.extend({}, totalCount[8], promotersCount[8], detractorsCount[8]),
+    ];
+
+
+    res.json([
+      mergedData,
+      npsReason
     ]);
   },
 
