@@ -18,4 +18,5 @@ app.use(function(req, res, next) {
 app.get('/', staticPageController.renderHome);
 app.get('/about', staticPageController.renderAbout);
 app.get('/contact', staticPageController.renderContact);
+app.get('/signup', staticPageController.renderSignup);
 };
