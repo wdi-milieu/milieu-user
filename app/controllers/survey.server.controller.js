@@ -1,4 +1,6 @@
 var Survey = require('mongoose').model('Survey');
+var brands_arr = require('../../public/scripts/brands');
+var survey_arr = require('../../public/scripts/survey');
 
 module.exports = {
   all: function (req, res, next) {
@@ -22,11 +24,17 @@ module.exports = {
       title: 'Edit a Survey'
     });
   },
+
+
   new: function(req, res) {
     res.render('surveys/take', {
-      title: 'Add A Survey'
+      title: 'Taking Survey',
+      brands: brands_arr,
+      survey: survey_arr
     });
   },
+
+
   create: function(req, res, next) {
     var survey = new Survey(req.body);
     survey.save(function(err) {

@@ -1,1 +1,57 @@
-<h4> User takes survey here </h4>
+<h1>Brands Survey</h1>
+
+<div id="survey">
+  <form class="" action="/surveys" method="post">
+    <% survey.forEach(function(surveyElem, index) { %>
+      <div id="survey_container">
+      <%= surveyElem.question %>
+      </div>
+      <% if(surveyElem.type == "radio") { %>
+        <div class="qn_container">
+          <div id="o_container">
+            <% surveyElem.options.forEach(function(optElem, index) { %>
+              <div class="opt" id="opt<%= optElem.value %>"><%= optElem.text %></div>
+            <% }) %>
+          </div>
+          <div id="b_container">
+            <% brands.forEach(function(brandElem, index) { %>
+              <div class="brandrow" id="<%= brandElem.name %>"><%= brandElem.name %></div>
+            <% }) %>
+          </div>
+          <div id="rd_container">
+            <% brands.forEach(function(brandElem, index) { %>
+              <% surveyElem.options.forEach(function(optElem, index) { %>
+                <div class="radiobox" id="rdb<%= index %>">
+                  <input type="radio" name="<%= brandElem.name %>" value="<%= optElem.value %>"><br>
+                </div>
+              <% }) %>
+            <% }) %>
+          </div>
+        </div>
+
+      <% } else { %>
+        <div class="survey_container">
+          <div id="b_container">
+            <% brands.forEach(function(brandElem, index) { %>
+              <div class="brandrow" id="<%= brandElem.name %>"><%= brandElem.name %></div>
+            <% }) %>
+          </div>
+          <div id="s_container">
+            <% brands.forEach(function(brandElem, index) { %>
+              <div class="sliderrow" id="<%= brandElem.name %>_slider">
+
+                <form onsubmit="return false" oninput="level.value = flevel.valueAsNumber">
+                <input name="flevel" id="flying" type="range" min="0" max="10" value="5" step="1">
+                <output for="flying" name="level"></output>
+                </form>
+
+              </div>
+            <% }) %>
+          </div>
+        </div>
+
+      <% } %>
+
+    <% }) %>
+
+</div>

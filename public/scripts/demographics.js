@@ -1,4 +1,4 @@
-var question_arr = [
+var demographics_arr = [
   {
     label: "First Name",
     id: "firstName",
@@ -163,4 +163,4 @@ var question_arr = [
   }
 ];
 
-module.exports = question_arr;
+module.exports = demographics_arr;

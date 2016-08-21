@@ -4,32 +4,24 @@
   <form class="" action="/users" method="post">
     <% demographics.forEach(function(elem, index){ %>
       <% if(elem.type == "textfield") { %>
-
         <label>
           <%= elem.label %>
         </label>
         <input type="text" id="<%= elem.label %>" placeholder="<%= elem.label %>">
-
       <% } else { %>
-
         <label>
           <%= elem.label %>
         </label>
         <select>
           <% elem.options.forEach(function(option, index){ %>
-
             <option value=< %=o ption.value%> >
               <%= option.text %>
             </option>
-
           <% }) %>
         </select>
-
       <% } %>
     <% }) %>
-
     <br />
     <button type="submit" value="Submit">Submit</button>
-
   </form>
 </div>
