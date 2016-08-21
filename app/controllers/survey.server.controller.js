@@ -1,7 +1,9 @@
 var Survey = require('mongoose').model('Survey');
 var _ = require('underscore');
 
-var totalCount, promotersCount, detractorsCount, mergedData, npsReason;
+var totalCount, promotersCount, detractorsCount, npsReason;
+var mergedData = [];
+var apiData = [];
 
 Survey.aggregate([
   { $group: {
@@ -59,37 +61,29 @@ module.exports = {
     });
   },
   index: function(req, res, next) {
-    // Survey.findOne({})
-    // .populate('user')
-    // .exec(function(err, surveys) {
-    //   if (err) res.status(400).send(err);
-    //   res.json(surveys);
-    // });
-    mergedData = [
-      _.extend({}, totalCount[0], promotersCount[0], detractorsCount[0]),
-      _.extend({}, totalCount[1], promotersCount[1], detractorsCount[1]),
-      _.extend({}, totalCount[2], promotersCount[2], detractorsCount[2]),
-      _.extend({}, totalCount[3], promotersCount[3], detractorsCount[3]),
-      _.extend({}, totalCount[4], promotersCount[4], detractorsCount[4]),
-      _.extend({}, totalCount[5], promotersCount[5], detractorsCount[5]),
-      _.extend({}, totalCount[6], promotersCount[6], detractorsCount[6]),
-      _.extend({}, totalCount[7], promotersCount[7], detractorsCount[7]),
-      _.extend({}, totalCount[8], promotersCount[8], detractorsCount[8]),
-    ];
+    for (var i = 0; i < totalCount.length; i++) {
+      mergedData.push(_.extend({}, totalCount[i], promotersCount[i], detractorsCount[i]));
+    }
 
+    for(var j = 0; j < totalCount.length; j++)  {
+      var index = mergedData[j];
 
-    res.json([
+      apiData.push({"brand": index._id, "NPS Score": (index.promoters/index.total * 100) - (index.detractors/index.total * 100) });
+    }
+
+    res.json({
+      apiData,
       mergedData,
       npsReason
-    ]);
+    });
   },
 
-
-  // {npsReason},
-  // { mergeCount },
-  // { totalCount },
-  // { promotersCount },
-  // { detractorsCount }
+  // Survey.findOne({})
+  // .populate('user')
+  // .exec(function(err, surveys) {
+  //   if (err) res.status(400).send(err);
+  //   res.json(surveys);
+  // });
 
   // Survey.aggregate([
   //   { $group: { _id: {$toUpper: "$brandName"}, total: { $avg: "$npsScore"}}}
