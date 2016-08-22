@@ -17,13 +17,13 @@ app.get('/surveys/create', surveyController.launch);
 app.get('/surveys/edit', surveyController.edit);
 
 app.post('/surveys', surveyController.create);
-// app.route('/api/surveys')
-//   .get(surveyController.index)
-//   .post(surveyController.create);
-//
-// app.route('/api/surveys/:id')
-//   .get(surveyController.show)
-//   .put(surveyController.update)
-//   .delete(surveyController.destroy);
+app.route('/api/surveys')
+  .get(surveyController.index)
+  .post(surveyController.create);
+
+app.route('/api/surveys/:id')
+  .get(surveyController.show)
+  .put(surveyController.update)
+  .delete(surveyController.destroy);
 
 };
