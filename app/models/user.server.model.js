@@ -12,7 +12,8 @@ var userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
+    match:  /^\w+@[a-za-z_]+?\.[a-za-z]{2,3}$/
   },
   password: {
     type: String,
