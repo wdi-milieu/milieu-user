@@ -42,10 +42,12 @@ module.exports = function() {
         '/',
         '/user/new',
         '/users/login',
-        {
-          url: new RegExp('/api.*/', 'i'),
-          // method: ['GET']
-        },
+        '/about',
+        '/contact',
+        // {
+        //   url: new RegExp('/api.*/', 'i'),
+        //   // method: ['GET']
+        // },
         {
           url: new RegExp('/css.*/', 'i'),
           // method: ['GET']

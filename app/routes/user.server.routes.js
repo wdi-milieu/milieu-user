@@ -23,13 +23,9 @@ app.get('/users/login', userController.login);
 
 app.post('/users', userController.create);
 
-router.post('/users/login', function(req, res) {
+app.post('/', function(req, res) {
+  console.log(req.body);
   var input_user = req.body;
-
-  // 1. take in the email from req.body
-  // 2. find user based on that email
-  // 3. get password based on that user
-  // 4. compare it with req.body.password
 
   User.findOne({ email: input_user.email }, function (err, db_user) {
     if(err) res.send(err);
@@ -47,7 +43,7 @@ router.post('/users/login', function(req, res) {
             expiresIn: '3h'
           };
           var jwt_token = jwt.sign(payload, jwt_secret, expiryObj);
-
+          
           return res.status(200).send(jwt_token);
         } else {
           return res.status(401).send({ message: 'login failed' });
@@ -57,15 +53,16 @@ router.post('/users/login', function(req, res) {
       return res.status(401).send({ message: 'user not found in database' });
     }
   });
+  res.redirect('/surveys/take');
 });
 
-// app.route('/api/users')
-//   .get(userController.index)
-//   .post(userController.create);
-//
-// app.route('/api/users/:id')
-//   .get(userController.show)
-//   .put(userController.update)
-//   .delete(userController.destroy);
+app.route('/api/users')
+  .get(userController.index)
+  .post(userController.create);
+
+app.route('/api/users/:id')
+  .get(userController.show)
+  .put(userController.update)
+  .delete(userController.destroy);
 
 };
