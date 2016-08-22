@@ -51,7 +51,7 @@ var userSchema = new mongoose.Schema({
     required: true
   },
   survey: [{
-    type: String,
+    type: Array,
     ref: 'Survey',
     required: true
   }]
