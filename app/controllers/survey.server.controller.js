@@ -6,6 +6,7 @@ var mergedRawData = [];
 var apiData = [];
 
 Survey.aggregate([
+  { $match: { datetaken: { $gte: '2016-08-20T05:46:05.514Z'} }},
   { $group: {
     _id: "$brandName",
     total: { $sum: 1 }
@@ -16,7 +17,9 @@ Survey.aggregate([
 });
 
 Survey.aggregate([
-  { $match: { npsScore: { $gte: 9 }}},
+  { $match: {
+    npsScore: { $gte: 9 },
+    datetaken: { $gte: '2016-08-20T05:46:05.514Z'}}},
   { $group: {
     _id: "$brandName",
     promoters: { $sum: 1 }
@@ -27,7 +30,10 @@ Survey.aggregate([
 });
 
 Survey.aggregate([
-  { $match: { npsScore: { $lte: 6 }}},
+  { $match: {
+    npsScore: { $lte: 6 },
+    datetaken: { $gte: '2016-08-20T05:46:05.514Z'}
+  }},
   { $group: {
     _id: "$brandName",
     detractors: { $sum: 1 }
@@ -38,6 +44,7 @@ Survey.aggregate([
 });
 
 Survey.aggregate([
+  { $match: { datetaken: { $gte: '2016-08-20T05:46:05.514Z'} }},
   { $group: {
     _id: {
       brandName: "$brandName",
