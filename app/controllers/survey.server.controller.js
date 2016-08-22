@@ -1,7 +1,7 @@
 var Survey = require('mongoose').model('Survey');
 var _ = require('underscore');
 
-var totalCount, promotersCount, detractorsCount, npsReason;
+var totalCount, promotersCount, detractorsCount, npsReason, maleCount, femaleCount;
 var mergedRawData = [];
 var apiData = [];
 
@@ -68,6 +68,24 @@ Survey.aggregate([
     npsReason = result;
 });
 
+//match gender and retrieve npsScore
+Survey.aggregate([
+  { $match: { "user[0][gender]": 2 }}
+], function(err, result){
+    femaleCount = result;
+});
+
+// { $group: {
+//   _id: "$user",
+//   total: { $sum: 1 }
+// }},
+
+// { $unwind: "$user" },
+// { $group: {
+//   _id: "$user.gender", count: { $sum: 1 }
+// }}
+
+
 module.exports = {
   all: function (req, res, next) {
     res.render('surveys/index', {
@@ -88,26 +106,33 @@ module.exports = {
       var brandIndex = mergedRawData[j];
 
       apiData.push({"Brand": brandIndex._id,
-      "NPS Score": (brandIndex.promoters/brandIndex.total * 100) - (brandIndex.detractors/brandIndex.total * 100),
-      "NPS Reason1": (brandIndex.npsReason1/brandIndex.total * 100) + "%",
-      "NPS Reason2": (brandIndex.npsReason2/brandIndex.total * 100) + "%",
-      "NPS Reason3": (brandIndex.npsReason3/brandIndex.total * 100) + "%",
+      "NPS_Score": parseInt(brandIndex.promoters/brandIndex.total * 100) - parseInt(brandIndex.detractors/brandIndex.total * 100),
+      "NPS_Reason1": parseInt(brandIndex.npsReason1/brandIndex.total * 100) + "%",
+      "NPS_Reason2": parseInt(brandIndex.npsReason2/brandIndex.total * 100) + "%",
+      "NPS_Reason3": parseInt(brandIndex.npsReason3/brandIndex.total * 100) + "%",
      });
     }
-
+    // console.log(user[0]);
     res.json({
       // npsReason,
+      // femaleCount,
       apiData,
-      mergedRawData,
+      // mergedRawData,
     });
+
+    // Survey.findOne({})
+    // .populate('user')
+    // .exec(function(err, surveys) {
+    //   if (err) res.status(400).send(err);
+    //   console.log("Gender is: " + surveys.user[0].gender);
+    //   res.json([
+    //     {surveys},
+    //     {mergedRawData}
+    //   ]);
+    // });
   },
 
-  // Survey.findOne({})
-  // .populate('user')
-  // .exec(function(err, surveys) {
-  //   if (err) res.status(400).send(err);
-  //   res.json(surveys);
-  // });
+
 
   // Survey.aggregate([
   //   { $group: { _id: {$toUpper: "$brandName"}, total: { $avg: "$npsScore"}}}

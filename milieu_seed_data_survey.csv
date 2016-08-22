@@ -1,6 +1,6 @@
 _id,brandName,brandUsage,npsScore,npsReason,user,datetaken
-survey1,Apple,4,10,2,"ObjectId(""user1"")",2016-08-20T05:46:05.514Z
-survey2,Apple,3,10,2,"objectId(""user2"")",2016-08-20T05:46:05.514Z
+survey1,Apple,4,10,2,user1,2016-08-20T05:46:05.514Z
+survey2,Apple,3,10,2,user2,2016-08-20T05:46:05.514Z
 survey3,Apple,4,10,2,user3,2016-08-20T05:46:05.514Z
 survey4,Apple,4,10,1,user4,2016-08-20T05:46:05.514Z
 survey5,Apple,3,10,1,user5,2016-08-20T05:46:05.514Z

@@ -1,12 +1,13 @@
 var mongoose = require('mongoose');
 
 var surveySchema = new mongoose.Schema({
+  _id: String,
   brandName: String,
   brandUsage: Number,
   npsScore: Number,
   npsReason: Number,
   user: [{
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     ref: 'User',
     required: true
   }],

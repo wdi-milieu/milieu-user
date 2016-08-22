@@ -22,7 +22,7 @@ module.exports = {
     });
   },
   index: function(req, res, next) {
-    User.findOne({})
+    User.find({})
     .populate('survey')
     .exec(function(err, users) {
       if (err) res.status(400).send(err);
