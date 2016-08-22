@@ -53,8 +53,8 @@ var userSchema = new mongoose.Schema({
   survey: [{
     type: String,
     ref: 'Survey',
-    required: true
   }]
+
 });
 
 var User = mongoose.model('User', userSchema);

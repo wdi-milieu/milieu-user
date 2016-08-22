@@ -2,7 +2,7 @@
 // requiring express.js and mongoose.js files here.
 var express = require('./config/express');
 var mongoose = require('./config/mongoose');
-mongoose.Promise = global.Promise;
+mongoose.mPromise = global.promise;
 
 // calling both functions, which comes from the above files.
 var app = express();

@@ -7,17 +7,21 @@
       <%= surveyElem.question %>
       </div>
       <% if(surveyElem.type == "radio") { %>
+
         <div class="survey_container">
+
           <div id="o_container">
             <% surveyElem.options.forEach(function(optElem, index) { %>
               <div class="opt" id="opt<%= optElem.value %>"><%= optElem.text %></div>
             <% }) %>
           </div>
+
           <div id="b_container">
             <% brands.forEach(function(brandElem, index) { %>
               <div class="brandrow" id="<%= brandElem.name %>"><%= brandElem.name %></div>
             <% }) %>
           </div>
+
           <div id="rd_container">
             <% brands.forEach(function(brandElem, index) { %>
               <% surveyElem.options.forEach(function(optElem, index) { %>
@@ -27,9 +31,11 @@
               <% }) %>
             <% }) %>
           </div>
+
         </div>
 
       <% } else { %>
+
         <div class="survey_container">
           <div id="b_container">
             <% brands.forEach(function(brandElem, index) { %>

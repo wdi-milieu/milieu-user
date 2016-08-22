@@ -140,7 +140,7 @@ var demographics_arr = [
   },
   {
     label: "How much time do you spend online daily for personal consumption? Please consider both desktop and mobile consumption.",
-    id: "householdIncome",
+    id: "timeOnline",
     type: "select",
     options: [
       {
