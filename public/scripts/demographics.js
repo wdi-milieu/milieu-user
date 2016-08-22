@@ -17,7 +17,7 @@ var demographics_arr = [
   {
     label: "Password",
     id: "password",
-    type: "textfield"
+    type: "password"
   },
   {
     label: "Gender",
