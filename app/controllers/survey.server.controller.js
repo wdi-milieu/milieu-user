@@ -106,40 +106,37 @@ module.exports = {
     });
   },
   index: function(req, res, next) {
-    for (var i = 0; i < totalCount.length; i++) {
-      mergedRawData.push(_.extend({}, totalCount[i], promotersCount[i], detractorsCount[i], npsReason[i] ));
-    }
-
-    for(var j = 0; j < totalCount.length; j++)  {
-      var brandIndex = mergedRawData[j];
-
-      apiData.push({
-      "Brand": brandIndex._id,
-      "NPS_Score": parseInt(brandIndex.promoters/brandIndex.total * 100) - parseInt(brandIndex.detractors/brandIndex.total * 100),
-      "NPS_Reason1": parseInt(brandIndex.npsReason1/brandIndex.total * 100) + "%",
-      "NPS_Reason2": parseInt(brandIndex.npsReason2/brandIndex.total * 100) + "%",
-      "NPS_Reason3": parseInt(brandIndex.npsReason3/brandIndex.total * 100) + "%",
-      "totalSurvey": brandIndex.total
-     });
-    }
-    // console.log(user[0]);
-    res.json({
-      // npsReason,
-      // femaleCount,
-      apiData,
-      mergedRawData,
-    });
-
-    // Survey.findOne({})
-    // .populate('user')
-    // .exec(function(err, surveys) {
-    //   if (err) res.status(400).send(err);
-    //   console.log("Gender is: " + surveys.user[0].gender);
-    //   res.json([
-    //     {surveys},
-    //     {mergedRawData}
-    //   ]);
+    // for (var i = 0; i < totalCount.length; i++) {
+    //   mergedRawData.push(_.extend({}, totalCount[i], promotersCount[i], detractorsCount[i], npsReason[i] ));
+    // }
+    //
+    // for(var j = 0; j < totalCount.length; j++)  {
+    //   var brandIndex = mergedRawData[j];
+    //
+    //   apiData.push({
+    //   "Brand": brandIndex._id,
+    //   "NPS_Score": parseInt(brandIndex.promoters/brandIndex.total * 100) - parseInt(brandIndex.detractors/brandIndex.total * 100),
+    //   "NPS_Reason1": parseInt(brandIndex.npsReason1/brandIndex.total * 100) + "%",
+    //   "NPS_Reason2": parseInt(brandIndex.npsReason2/brandIndex.total * 100) + "%",
+    //   "NPS_Reason3": parseInt(brandIndex.npsReason3/brandIndex.total * 100) + "%",
+    //   "totalSurvey": brandIndex.total
+    //  });
+    // }
+    // // console.log(user[0]);
+    // res.json({
+    //   // npsReason,
+    //   // femaleCount,
+    //   apiData,
+    //   mergedRawData,
     // });
+
+    Survey.findOne({})
+    .populate('user')
+    .exec(function(err, surveys) {
+      if (err) res.status(400).send(err);
+      // console.log("Gender is: " + surveys.user[0].gender);
+      res.json(surveys);
+    });
   },
 
 

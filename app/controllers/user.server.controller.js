@@ -1,5 +1,8 @@
 var User = require('mongoose').model('User');
 
+
+
+
 module.exports = {
   login: function(req, res, next) {
     res.render('users/login', {
