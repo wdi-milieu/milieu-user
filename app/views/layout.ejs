@@ -9,40 +9,13 @@
   </head>
 
   <body>
-    <div class="jumbotron">
-      <h1 id="brandname">MILIEU</h1>
+  <% if (typeof show != "undefined" && show) { %>
+  <% include jumbotron %>
+  <% } %>
 
-      <div id="arrow">
-        <a href="#navigate">
-          <svg width="70" height="40" viewBox="-2.5 -5 75 60" preserveAspectRatio="none">
-            <path  id="arrowlink" d="M0,0 l35,50 l35,-50" fill="none" stroke="white" stroke-linecap="round" stroke-width="2" />
-          </svg>
-        </a>
-      </div>
-    </div>
+  <% include navbar %>
 
-    <!-- navbar -->
-    <nav class="navbar" id="navigate">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="/#navigate">LOG IN</a></li>
-          <li><a href="/about#navigate">ABOUT</a></li>
-          <li><a href="/user/new#navigate">SIGN UP</a></li>
-          <li><a href="/contact#navigate">CONTACT US</a></li>
-        </ul>
-      </div><!-- /.container-fluid -->
-    </nav>
-
-    <%- body %>
+  <%- body %>
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="scripts/script.js"></script>
