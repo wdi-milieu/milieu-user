@@ -164,12 +164,31 @@ module.exports = {
       survey: survey_arr
     });
   },
+
+  // { brandUsage: [ '2', '2' ],
+  //   npsScore: [ '1', '1' ],
+  //   npsReason: [ '2', '2' ],
+  //   brandName: [ 'Apple', 'Samsung' ] }
+
   create: function(req, res, next) {
-    var survey = new Survey(req.body);
-    survey.save(function(err) {
-      if (err) return next(err);
-      res.json(survey);
-    });
+    for (var i = 0; i < req.body.brandName.length; i++) {
+      console.log(req.body);
+      console.log(req.body.brandName.length);
+      surveyData = {};
+      surveyData['brandName'] = req.body.brandName[i];
+      surveyData['brandUsage'] = req.body.brandUsage[i];
+      surveyData['npsScore'] = req.body.npsScore[i];
+      surveyData['npsReason'] = req.body.npsReason[i];
+      surveyData['user'] = "testuser";
+
+      var survey = new Survey(surveyData);
+      console.log(survey);
+      survey.save(function(err) {
+        if (err) return next(err);
+        res.redirect('/users/dashboard');
+      });
+    }
+
   },
   show: function(req, res) {
     res.json(req.survey);
