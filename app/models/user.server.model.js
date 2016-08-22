@@ -52,7 +52,6 @@ var userSchema = new mongoose.Schema({
   survey: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Survey',
-    required: true
   }
 });
 

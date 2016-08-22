@@ -20,8 +20,9 @@ module.exports = function() {
   } else if (process.env.NODE_ENV === 'production') {
     app.use(compress()); // use compress in prod.
   }
-  app.use(bodyParser.urlencoded({extended: true})); //use bodyparser in urlencoded format.
   app.use(bodyParser.json()); //use bodyparser in json format
+  app.use(bodyParser.urlencoded({extended: true})); //use bodyparser in urlencoded format.
+
   app.use(methodOverride()); //use method override.
 
   app.set('views', './app/views'); // set views to be in app/views folder.

@@ -15,7 +15,7 @@
             <label>
               <%= elem.label %>
             </label>
-            <input type="text" class="form-control" id="<%= elem.label %>" placeholder="<%= elem.label %>">
+            <input type="text" class="form-control" id="<%= elem.label %>" placeholder="<%= elem.label %>" name="<%= elem.id %>">
           </div>
 
         <% } else if(elem.type == "select") { %>
@@ -24,9 +24,9 @@
               <%= elem.label %>
             </label>
 
-            <select>
+            <select name="<%= elem.id %>">
               <% elem.options.forEach(function(option, index){ %>
-                <option class="form-control" value=< %=option.value%> >
+                <option class="form-control" value="<%=option.value%>" >
                   <%= option.text %>
                 </option>
               <% }) %>
@@ -39,7 +39,7 @@
             <label>
               <%= elem.label %>
             </label>
-            <input type="password" id="<%= elem.label %>" placeholder="<%= elem.label %>" class="form-control">
+            <input type="password" id="<%= elem.label %>" placeholder="<%= elem.label %>" class="form-control" name="<%= elem.id %>">
           </div>
 
         <% } %>
