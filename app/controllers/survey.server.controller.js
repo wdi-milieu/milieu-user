@@ -119,14 +119,15 @@ module.exports = {
       "NPS_Reason1": parseInt(brandIndex.npsReason1/brandIndex.total * 100) + "%",
       "NPS_Reason2": parseInt(brandIndex.npsReason2/brandIndex.total * 100) + "%",
       "NPS_Reason3": parseInt(brandIndex.npsReason3/brandIndex.total * 100) + "%",
+      "totalSurvey": brandIndex.total
      });
     }
     // console.log(user[0]);
     res.json({
       // npsReason,
       // femaleCount,
-      // apiData,
-      mergedRawData,
+      apiData,
+      // mergedRawData,
     });
 
     // Survey.findOne({})
