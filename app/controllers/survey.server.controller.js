@@ -116,8 +116,8 @@ module.exports = {
     res.json({
       // npsReason,
       // femaleCount,
-      apiData,
-      // mergedRawData,
+      // apiData,
+      mergedRawData,
     });
 
     // Survey.findOne({})
