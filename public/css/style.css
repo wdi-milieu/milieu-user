@@ -57,7 +57,5 @@ a svg:hover #arrowlink{
 
 .main {
   width: 80vw;
-  height: 100vh;
+  margin-bottom: 10%;
 }
-
-/* take survey page- take.ejs */

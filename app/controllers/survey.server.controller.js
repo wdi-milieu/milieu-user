@@ -34,7 +34,7 @@ module.exports = {
   create: function(req, res, next) {
     var survey = new Survey(req.body);
     survey.save(function(err) {
-      if (err) return next(err);
+      if (err) res.json(err);
       res.json(survey);
     });
   },
