@@ -1,5 +1,10 @@
 module.exports = function(app) {
 
+var express = require('express'),
+    router  = express.Router(),
+    jwt = require('jsonwebtoken'),
+    jwt_secret = 'supercalifragilisticexpialidocious';
+
 var User = require('../models/user.server.model');
 var userController = require('../controllers/user.server.controller');
 
@@ -17,6 +22,42 @@ app.get('/users/dashboard', userController.dashboard);
 app.get('/users/login', userController.login);
 
 app.post('/users', userController.create);
+
+router.post('/users/login', function(req, res) {
+  var input_user = req.body;
+
+  // 1. take in the email from req.body
+  // 2. find user based on that email
+  // 3. get password based on that user
+  // 4. compare it with req.body.password
+
+  User.findOne({ email: input_user.email }, function (err, db_user) {
+    if(err) res.send(err);
+
+    if(db_user) {
+      db_user.auth( input_user.password, function(err, is_match_password) {
+        if(err) return res.status(500).send(err);
+
+        if(is_match_password) {
+          var payload = {
+            id: db_user.id,
+            email: db_user.email
+          };
+          var expiryObj = {
+            expiresIn: '3h'
+          };
+          var jwt_token = jwt.sign(payload, jwt_secret, expiryObj);
+
+          return res.status(200).send(jwt_token);
+        } else {
+          return res.status(401).send({ message: 'login failed' });
+        }
+      });
+    } else {
+      return res.status(401).send({ message: 'user not found in database' });
+    }
+  });
+});
 
 // app.route('/api/users')
 //   .get(userController.index)

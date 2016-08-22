@@ -1,5 +1,3 @@
-var jwt_secret = 'supercalifragilisticexpialidocious';
-
 // requiring express.js and mongoose.js files here.
 var express = require('./config/express');
 var mongoose = require('./config/mongoose');
