@@ -1,0 +1,62 @@
+* {
+  font-family: 'Lato', sans-serif;
+}
+
+html {
+  background-color: #FFFFFF;
+}
+
+h3 {
+  font-family: 'Hind Guntur', sans-serif;
+}
+
+.jumbotron {
+  height: 100vh;
+  text-align: center;
+  position: relative;
+  background: -webkit-linear-gradient(left top, #FC7864, #FDA366); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #FC7864, #FDA366); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #FC7864, #FDA366); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to obottom right, #FC7864, #FDA366); /* Standard syntax */
+}
+
+
+#arrow {
+  display: block;
+  margin-top: 5vh;
+}
+
+a svg:hover #arrowlink{
+  stroke: lightgrey;
+}
+
+#brandname {
+  font-family: 'Hind Guntur', sans-serif;
+  font-size: 50px;
+  text-align: center;
+  color: white;
+  line-height: inherit;
+  letter-spacing: 3px;
+  display: none;
+  margin-top: 25vh;
+}
+
+.title{
+  text-align: center;
+}
+
+.hr {
+  margin-top: 0;
+  /*margin-bottom: 4px;*/
+  width: 30vw;
+}
+
+.borderright {
+  border-right: 1px solid lightgrey;
+}
+
+/* login page*/
+.main {
+  width: 60vw;
+  height: 100vh;
+}

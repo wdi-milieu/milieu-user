@@ -2,7 +2,8 @@
 
 module.exports.renderHome = function(req, res) { // linking routes to render views for index, about and contact with defined title for each page.
     res.render('static_pages/index', {
-      title: 'MENU'
+      title: 'MENU',
+      show: true
     });
 };
 
