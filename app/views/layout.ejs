@@ -2,19 +2,22 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title> Milieu </title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- Optional theme -->
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Hind+Guntur|Lato" rel="stylesheet">
+    <title> Milieu | <%= title %> </title>
   </head>
-  <body>
 
-    <div class="container">
-      <h1> Welcome to Milieu | <%= title %> </h1>
-      <%- body %>
-    </div>
-    <script type="text/javascript" src="/scripts/script.js"></script>
+  <body>
+  <% if (typeof show != "undefined" && show) { %>
+  <% include jumbotron %>
+  <% } %>
+
+  <% include navbar %>
+
+  <%- body %>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/script.js"></script>
   </body>
 </html>

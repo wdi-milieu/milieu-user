@@ -16,6 +16,7 @@ app.get('/surveys/index', surveyController.all);
 app.get('/surveys/create', surveyController.launch);
 app.get('/surveys/edit', surveyController.edit);
 
+app.post('/surveys', surveyController.create);
 app.route('/api/surveys')
   .get(surveyController.index)
   .post(surveyController.create);

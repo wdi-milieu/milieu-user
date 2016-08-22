@@ -21,6 +21,7 @@ Survey.aggregate([
     npsScore: { $gte: 9 },
     datetaken: { $gte: '2016-08-20T05:46:05.514Z'}
   }},
+
   { $group: {
     _id: "$brandName",
     promoters: { $sum: 1 }
@@ -93,6 +94,8 @@ Survey.aggregate([
 //   _id: "$user.gender", count: { $sum: 1 }
 // }}
 
+var brands_arr = require('../../public/scripts/brands');
+var survey_arr = require('../../public/scripts/survey');
 
 module.exports = {
   all: function (req, res, next) {
@@ -130,13 +133,13 @@ module.exports = {
     //   mergedRawData,
     // });
 
-    Survey.findOne({})
-    .populate('user')
-    .exec(function(err, surveys) {
-      if (err) res.status(400).send(err);
-      // console.log("Gender is: " + surveys.user[0].gender);
-      res.json(surveys);
-    });
+
+    // Survey.findOne({})
+    // .populate('user')
+    // .exec(function(err, surveys) {
+    //   if (err) res.status(400).send(err);
+    //   // console.log("Gender is: " + surveys.user[0].gender);
+    //   res.json(surveys);
   },
 
 
@@ -156,7 +159,9 @@ module.exports = {
   },
   new: function(req, res) {
     res.render('surveys/take', {
-      title: 'Add A Survey'
+      title: 'Take A Survey',
+      brands: brands_arr,
+      survey: survey_arr
     });
   },
   create: function(req, res, next) {

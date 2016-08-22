@@ -16,13 +16,15 @@ app.get('/users/edit', userController.edit);
 app.get('/users/dashboard', userController.dashboard);
 app.get('/users/login', userController.login);
 
-app.route('/api/users')
-  .get(userController.index)
-  .post(userController.create);
+app.post('/users', userController.create);
 
-app.route('/api/users/:id')
-  .get(userController.show)
-  .put(userController.update)
-  .delete(userController.destroy);
+// app.route('/api/users')
+//   .get(userController.index)
+//   .post(userController.create);
+//
+// app.route('/api/users/:id')
+//   .get(userController.show)
+//   .put(userController.update)
+//   .delete(userController.destroy);
 
 };
