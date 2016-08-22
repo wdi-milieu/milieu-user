@@ -45,6 +45,14 @@ module.exports = function() {
         {
           url: new RegExp('/api.*/', 'i'),
           // method: ['GET']
+        },
+        {
+          url: new RegExp('/css.*/', 'i'),
+          // method: ['GET']
+        },
+        {
+          url: new RegExp('/scripts.*/', 'i'),
+          // method: ['GET']
         }
       ]
     })
