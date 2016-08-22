@@ -37,11 +37,10 @@ module.exports = {
     });
   },
   create: function(req, res, next) {
-console.log(req.body.householdIncome)
     var user = new User(req.body);
     user.save(function(err) {
-      if (err) return res.json(err);
-      res.json(user);
+      if (err) return next(err);
+      res.redirect('/surveys/index');
     });
   },
   show: function(req, res) {
