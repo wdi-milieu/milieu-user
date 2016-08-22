@@ -13,10 +13,11 @@
     <table class="table">
       <thead>
         <tr id="qn_container">
-        <th colspan = <%=surveyElem.options.length + 1 %>>
-          <h4><%= surveyElem.question %></h4>
-        </th>
+          <th colspan = <%=surveyElem.options.length + 1 %>>
+            <h4><%= surveyElem.question %></h4>
+          </th>
         </tr>
+
         <tr>
           <th></th>
         <% surveyElem.options.forEach(function(optElem, index) { %>
@@ -44,37 +45,7 @@
 
       </tbody>
     </table>
-
-    <% } else { %>
-
-    <table class="table">
-
-      <div class="survey_container">
-
-        <div id="b_container">
-          <% brands.forEach(function(brandElem, index) { %>
-            <div class="brandrow" id="<%= brandElem.name %>"><%= brandElem.name %></div>
-          <% }) %> <!-- end of brand name loop -->
-        </div>
-
-        <div id="s_container">
-          <% brands.forEach(function(brandElem, index) { %>
-
-            <div class="sliderrow" id="<%= brandElem.name %>_slider">
-              <form onsubmit="return false" oninput="level.value = flevel.valueAsNumber">
-                <input name="flevel" id="flying" type="range" min="0" max="10" value="5" step="1">
-                <output for="flying" name="level">5</output>
-              </form>
-            </div>
-
-          <% }) %> <!-- end of for each brand loop -->
-        </div> <!-- end of s_container -->
-
-      </div> <!-- end of survey_container -->
-
-    </table>
-
-  <% } %> <!-- end of if else -->
-<% }) %> <!-- end of for each survey function -->
+  <hr class>
+<% }}) %> <!-- end of for each survey function -->
 </form> <!-- end of form -->
 </div> <!--end of container-->
