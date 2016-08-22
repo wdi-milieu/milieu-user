@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 var userSchema = new mongoose.Schema({
+  _id: String,
   firstName: {
     type: String,
     required: true
@@ -50,7 +51,7 @@ var userSchema = new mongoose.Schema({
     required: true
   },
   survey: [{
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     ref: 'Survey',
     required: true
   }]
