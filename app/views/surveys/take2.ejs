@@ -5,7 +5,7 @@
   </div>
   <hr class="hr">
 
-  <form class="" action="/surveys" method="post">
+  <form class="" action="/survey2" method="post">
   <% survey.forEach(function(surveyElem, index) { %>
 
     <% if(surveyElem.type == "radio") { %>
@@ -13,7 +13,7 @@
     <table class="table">
       <thead>
         <tr id="qn_container">
-          <th colspan = <%=surveyElem.options.length + 1 %>>
+          <th colspan = <%=surveyElem.length + 1 %>>
             <h4><%= surveyElem.question %></h4>
           </th>
         </tr>
