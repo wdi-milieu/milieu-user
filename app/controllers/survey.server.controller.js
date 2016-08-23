@@ -138,7 +138,7 @@ module.exports = {
       surveyData['brandUsage'] = req.body.brandUsage[i];
       surveyData['npsScore'] = req.body.npsScore[i];
       surveyData['npsReason'] = req.body.npsReason[i];
-      surveyData['user'] = "testuser";
+      surveyData['user'] = req.body.user[i];
 
       var survey = new Survey(surveyData);
       console.log(survey);
