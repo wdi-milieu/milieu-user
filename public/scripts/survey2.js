@@ -5,11 +5,11 @@ var survey_arr2 = [
     options: [
       {
         value: 1,
-        text: "Prima"
+        text: "Yogamaster",
       },
       {
         value: 2,
-        text: "Weird Creep"
+        text: "Weird Creep",
       }
     ]
   }
