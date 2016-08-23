@@ -44,10 +44,10 @@ module.exports = function() {
   //       '/users/login',
   //       '/about',
   //       '/contact',
-  //       // {
-  //       //   url: new RegExp('/api.*/', 'i'),
-  //       //   // method: ['GET']
-  //       // },
+  //       {
+  //         url: '/surveys/take',
+  //         method: ['POST']
+  //       },
   //       {
   //         url: new RegExp('/css.*/', 'i'),
   //         // method: ['GET']

@@ -1,12 +1,12 @@
 var demographics_arr = [
   {
     label: "First Name",
-    id: "firstName",
+    id: "first_name",
     type: "textfield"
   },
   {
     label: "Last Name",
-    id: "lastName",
+    id: "last_name",
     type: "textfield"
   },
   {

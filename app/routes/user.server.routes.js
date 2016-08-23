@@ -7,7 +7,6 @@ var express = require('express'),
 
 var User = require('../models/user.server.model');
 var userController = require('../controllers/user.server.controller');
-
 //actual ROUTING, uses static page controller to render the static pages via specified routes.
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -24,7 +23,6 @@ app.get('/users/login', userController.login);
 app.post('/users', userController.create);
 
 app.post('/', function(req, res) {
-  console.log(req.body);
   var input_user = req.body;
 
   User.findOne({ email: input_user.email }, function (err, db_user) {

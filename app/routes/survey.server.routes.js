@@ -2,7 +2,7 @@ module.exports = function(app) {
 
 var Survey = require('../models/survey.server.model');
 var surveyController = require('../controllers/survey.server.controller');
-
+var jwt = require('express-jwt');
 
 //actual ROUTING, uses static page controller to render the static pages via specified routes.
 app.use(function(req, res, next) {

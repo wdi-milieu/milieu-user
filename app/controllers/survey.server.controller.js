@@ -1,5 +1,8 @@
 var Survey = require('mongoose').model('Survey');
 var _ = require('underscore');
+var brands_arr = require('../../public/scripts/brands');
+var survey_arr = require('../../public/scripts/survey');
+
 
 var totalCount, promotersCount, detractorsCount, npsReason, maleCount, femaleCount;
 var mergedRawData = [];
@@ -75,9 +78,6 @@ Survey.aggregate([
 ], function(err, result){
     npsReason = result;
 });
-
-var brands_arr = require('../../public/scripts/brands');
-var survey_arr = require('../../public/scripts/survey');
 
 module.exports = {
   all: function (req, res, next) {

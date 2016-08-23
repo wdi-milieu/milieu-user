@@ -7,7 +7,7 @@ var userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  last_name: {
+  lastName: {
     type: String,
     required: true
   },
