@@ -13,8 +13,8 @@ $(function() {
   $("#jwt_token").val(localStorage.getItem('jwt_token'));
 
   $.ajax({
-    url: "http://localhost:9000/api/surveys",
-    headers: {"Authorization":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjU3YmJjODFiZjJhN2MwMWE1Y2JmOWYyMiIsImVtYWlsIjoiZ2VyYWxkQGcuY29tIiwiaWF0IjoxNDcxOTU0MTc3LCJleHAiOjE0NzE5NjQ5Nzd9.dZzFLd_oaEtgwVvCDpsrKGy-ryFfRg0wOc8FLV_bS5w"},
+    url: "https://evening-retreat-40915.herokuapp.com/api/surveys",
+    // headers: {"Authorization":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjU3YmJjODFiZjJhN2MwMWE1Y2JmOWYyMiIsImVtYWlsIjoiZ2VyYWxkQGcuY29tIiwiaWF0IjoxNDcxOTU0MTc3LCJleHAiOjE0NzE5NjQ5Nzd9.dZzFLd_oaEtgwVvCDpsrKGy-ryFfRg0wOc8FLV_bS5w"},
     type: "GET",
     datatype: 'json',
   }).done(function(result) {
