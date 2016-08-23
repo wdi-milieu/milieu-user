@@ -112,6 +112,18 @@ module.exports = {
       apiData,
       // mergedRawData,
     });
+
+    // Survey.findOne({})
+    // .populate('user')
+    // .exec(function(err, surveys) {
+    //   if (err) res.status(400).send(err);
+    //   console.log("Gender is: " + surveys.user[0].gender);
+    //   res.json([
+    //     {surveys},
+    //     {mergedRawData}
+    //   ]);
+    // });
+
   },
 
 

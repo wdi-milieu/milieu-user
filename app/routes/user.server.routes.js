@@ -20,9 +20,12 @@ app.get('/users/edit', userController.edit);
 app.get('/users/dashboard', userController.dashboard);
 app.get('/users/login', userController.login);
 
+app.post('/users/login', userController.login);
 app.post('/users', userController.create);
 
-app.post('/', function(req, res) {
+
+app.post('/admin/login', function(req, res) {
+  console.log(req.body);
   var input_user = req.body;
 
   User.findOne({ email: input_user.email }, function (err, db_user) {
@@ -30,6 +33,7 @@ app.post('/', function(req, res) {
 
     if(db_user) {
       db_user.auth( input_user.password, function(err, is_match_password) {
+
         if(err) return res.status(500).send(err);
 
         if(is_match_password) {
@@ -41,8 +45,9 @@ app.post('/', function(req, res) {
             expiresIn: '3h'
           };
           var jwt_token = jwt.sign(payload, jwt_secret, expiryObj);
-          res.redirect('/surveys/take');
-          // return res.status(200).send(jwt_token);
+
+
+          return res.status(200).send(jwt_token);
         } else {
           return res.status(401).send({ message: 'login failed' });
         }
@@ -52,6 +57,17 @@ app.post('/', function(req, res) {
     }
   });
 
+});
+
+app.get('/logout', function(req, res) {
+  res.render('logged out');
+  // jwt(
+  //   {
+  //     secret: jwt_secret,
+  //     isRevoked: function(req, payload, done) {
+  //
+  //     }
+  //   });
 });
 
 app.route('/api/users')
