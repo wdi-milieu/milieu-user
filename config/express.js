@@ -10,6 +10,7 @@ var express = require('express'), // Express module.
     expressLayouts = require('express-ejs-layouts'), //Allow for ejs layouts and syntax. (e.g. <%- body %>).
     expressJWT = require('express-jwt'),
     jwt = require('jsonwebtoken'),
+    blacklist = require('express-jwt-blacklist'),
     cookieParser = require('cookie-parser');
 
 //2) Creating a module exports function that specifies app structure and module usage across production/development.
@@ -32,33 +33,42 @@ module.exports = function() {
   app.set('view engine', 'ejs'); //set views to use ejs.
   app.use(expressLayouts);
 
+  blacklist.configure ({
+    tokenId: 'id'
+  });
+
   // express-jwt
-  // app.use(
-  //   expressJWT({
-  //     secret: jwt_secret
-  //   })
-  //   .unless({
-  //     path: [
-  //       '/',
-  //       '/user/new',
-  //       '/users/login',
-  //       '/about',
-  //       '/contact',
-  //       // {
-  //       //   url: new RegExp('/api.*/', 'i'),
-  //       //   // method: ['GET']
-  //       // },
-  //       {
-  //         url: new RegExp('/css.*/', 'i'),
-  //         // method: ['GET']
-  //       },
-  //       {
-  //         url: new RegExp('/scripts.*/', 'i'),
-  //         // method: ['GET']
-  //       }
-  //     ]
-  //   })
-  // );
+  app.use(
+    expressJWT({
+      secret: jwt_secret,
+      isRevoked: blacklist.isRevoked
+    })
+    .unless({
+      path: [
+        '/',
+        '/user/new',
+        '/users/login',
+        '/about',
+        '/contact',
+        '/admin/login',
+        '/surveys/take',
+        {
+          url: new RegExp('/css.*/', 'i'),
+          // method: ['GET']
+        },
+        {
+          url: new RegExp('/scripts.*/', 'i'),
+          // method: ['GET']
+        }
+      ]
+    })
+  );
+
+  app.get('/logout', function(req,res) {
+    res.send(req.user);
+    blacklist.revoke(req.user);
+    res.send('logout success!');
+  });
 
   require('../app/routes/index.server.routes')(app); //require the routes indicated by index.server.routes for the app to function as the next flow.
   require('../app/routes/user.server.routes')(app);
