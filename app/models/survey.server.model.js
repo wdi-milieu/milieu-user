@@ -1,16 +1,16 @@
 var mongoose = require('mongoose');
 
 var surveySchema = new mongoose.Schema({
-  _id: String,
+  // _id: String,
   brandName: String,
   brandUsage: Number,
   npsScore: Number,
   npsReason: Number,
-  user: [{
+  user: {
     type: String,
     ref: 'User',
     required: true
-  }],
+  },
   datetaken : { type : Date, default: Date.now }
 });
 

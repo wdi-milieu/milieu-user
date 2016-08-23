@@ -1,63 +1,59 @@
-<h4> User takes survey here </h4>
+<div class="container-fluid main">
 
-<div id="survey">
+  <div>
+    <h3  class="title">TAKE SURVEY</h3>
+  </div>
+  <hr class="hr">
+
   <form class="" action="/surveys" method="post">
-    <% survey.forEach(function(surveyElem, index) { %>
-      <div id="qn_container">
-      <%= surveyElem.question %>
-      </div>
-      <% if(surveyElem.type == "radio") { %>
+  <% survey.forEach(function(surveyElem, index) { %>
 
-        <div class="survey_container">
+    <% if(surveyElem.type == "radio") { %>
 
-          <div id="o_container">
-            <% surveyElem.options.forEach(function(optElem, index) { %>
-              <div class="opt" id="opt<%= optElem.value %>"><%= optElem.text %></div>
+    <table class="table">
+      <thead>
+        <tr id="qn_container">
+          <th colspan = <%=surveyElem.options.length + 1 %>>
+            <h4><%= surveyElem.question %></h4>
+          </th>
+        </tr>
+
+        <tr>
+          <th></th>
+        <% surveyElem.options.forEach(function(optElem, index) { %>
+          <th class="opt" id="opt<%= optElem.value %>"><%= optElem.text %></th>
+        <% }) %>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <% brands.forEach(function(brandElem, index) { %>
+          <tr>
+            <td class="brandcell" id="<%= brandElem.name %>" value="<%= brandElem.name %>" name="brandName">
+              <%= brandElem.name %>
+            </td>
+
+            <% surveyElem.options.forEach(function(optElem, qindex) { %>
+              <td class="radiobox" id="rdb<%= qindex %>">
+              <input type="radio" name="<%= surveyElem.name %>[<%= index %>]" value="<%= optElem.value %>">
+              </td>
             <% }) %>
-          </div>
 
-          <div id="b_container">
-            <% brands.forEach(function(brandElem, index) { %>
-              <div class="brandrow" id="<%= brandElem.name %>"><%= brandElem.name %></div>
-            <% }) %>
-          </div>
+          </tr>
+        <% }) %>
 
-          <div id="rd_container">
-            <% brands.forEach(function(brandElem, index) { %>
-              <% surveyElem.options.forEach(function(optElem, index) { %>
-                <div class="radiobox" id="rdb<%= index %>">
-                  <input type="radio" name="<%= brandElem.name %>" value="<%= optElem.value %>"><br>
-                </div>
-              <% }) %>
-            <% }) %>
-          </div>
+      </tbody>
+    </table>
+  <hr class>
+<% }}) %> <!-- end of for each survey function -->
 
-        </div>
+<% brands.forEach(function(brandElem, index) { %>
+  <input type="hidden" name="brandName" value="<%= brandElem.name %>">
+<% }) %>
 
-      <% } else { %>
+<button type="submit" class="btn btn-default">Submit Survey</button>
 
-        <div class="survey_container">
-          <div id="b_container">
-            <% brands.forEach(function(brandElem, index) { %>
-              <div class="brandrow" id="<%= brandElem.name %>"><%= brandElem.name %></div>
-            <% }) %>
-          </div>
-          <div id="s_container">
-            <% brands.forEach(function(brandElem, index) { %>
-              <div class="sliderrow" id="<%= brandElem.name %>_slider">
+</form> <!-- end of form -->
 
-                <form onsubmit="return false" oninput="level.value = flevel.valueAsNumber">
-                <input name="flevel" id="flying" type="range" min="0" max="10" value="5" step="1">
-                <output for="flying" name="level">5</output>
-                </form>
-
-              </div>
-            <% }) %>
-          </div>
-        </div>
-
-      <% } %>
-
-    <% }) %>
-
-</div>
+</div> <!--end of container-->

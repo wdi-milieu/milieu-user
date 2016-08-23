@@ -1,6 +1,9 @@
 var User = require('mongoose').model('User');
 var demographics_arr = require('../../public/scripts/demographics');
 
+
+
+
 module.exports = {
   login: function(req, res, next) {
     res.render('users/login', {
@@ -11,6 +14,9 @@ module.exports = {
     res.render('users/dashboard', {
       title: 'Dashboard'
     });
+
+
+
   },
   all: function(req, res, next) {
     res.render('users/index', {
@@ -24,7 +30,6 @@ module.exports = {
   },
   index: function(req, res, next) {
     User.find({})
-    .populate('survey')
     .exec(function(err, users) {
       if (err) res.status(400).send(err);
       res.json(users);
