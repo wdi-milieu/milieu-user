@@ -27,13 +27,51 @@ var survey_arr = [
     ]
   },
   {
-    question: "How likely are you going to recommend each of these brands to your friends/colleagues or other people?",
+    question: "From a range of 1 to 10, 1 being the most unlikely, how likely are you to recommend each of these brands to your friends/colleagues or other people?",
     id: "survey_qn2",
-    type: "range",
-    min: 0,
-    max: 10,
-    step: 1,
-    value: 0
+    type: "radio",
+    options: [
+      {
+        value: 1,
+        text: "1"
+      },
+      {
+        value: 2,
+        text: "2"
+      },
+      {
+        value: 3,
+        text: "3"
+      },
+      {
+        value: 4,
+        text: "4"
+      },
+      {
+        value: 5,
+        text: "5"
+      },
+      {
+        value: 6,
+        text: "6"
+      },
+      {
+        value: 7,
+        text: "7"
+      },
+      {
+        value: 8,
+        text: "8"
+      },
+      {
+        value: 9,
+        text: "9"
+      },
+      {
+        value: 10,
+        text: "10"
+      }
+    ]
   },
   {
     question: "What are the key aspects that led you to give the above scores?",

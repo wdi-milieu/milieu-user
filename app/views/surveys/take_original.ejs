@@ -1,0 +1,107 @@
+<div class="container-fluid main">
+
+  <div>
+    <h3  class="title">TAKE SURVEY</h3>
+  </div>
+  <hr class="hr">
+
+  <div id="survey">
+    <form class="" action="/surveys" method="post">
+
+      <% survey.forEach(function(surveyElem, index) { %>
+        <div id="qn_container">
+        <%= surveyElem.question %>
+        </div>
+
+        <% if(surveyElem.type == "radio") { %>
+          <div class="survey_container">
+
+            <div id="o_container">
+              <div id="empty_opt"></div>
+              <% surveyElem.options.forEach(function(optElem, index) { %>
+                <div class="opt" id="opt<%= optElem.value %>"><%= optElem.text %></div>
+              <% }) %>
+            </div>
+
+            <div id="b_container">
+
+              <% brands.forEach(function(brandElem, index) { %>
+                <div class="brandcell" id="<%= brandElem.name %>"><%= brandElem.name %></div>
+              <% }) %>
+            </div>
+
+            <div id="rd_container">
+              <% brands.forEach(function(brandElem, index) { %>
+                <% surveyElem.options.forEach(function(optElem, index) { %>
+                  <div class="radiobox" id="rdb<%= index %>">
+                    <input type="radio" name="<%= brandElem.name %>" value="<%= optElem.value %>"><br>
+                  </div>
+                <% }) %>
+              <% }) %>
+            </div>
+
+          </div> <!-- end of survey container -->
+
+        <% } else { %>
+
+          <div class="survey_container">
+            <div id="b_container">
+              <% brands.forEach(function(brandElem, index) { %>
+                <div class="brandrow" id="<%= brandElem.name %>"><%= brandElem.name %></div>
+              <% }) %>
+            </div>
+
+            <div id="s_container">
+              <% brands.forEach(function(brandElem, index) { %>
+                <div class="sliderrow" id="<%= brandElem.name %>_slider">
+                  <form onsubmit="return false" oninput="level.value = flevel.valueAsNumber">
+                  <input name="flevel" id="flying" type="range" min="0" max="10" value="5" step="1">
+                  <output for="flying" name="level">5</output>
+                  </form>
+                </div>
+              <% }) %> <!-- end of for each brand loop -->
+            </div> <!-- end of s_container -->
+          </div> <!-- end of survey_container -->
+
+        <% } %>
+      <% }) %>
+
+  </div>
+
+
+</div> <!--end of container-->
+
+
+<!--css stuff is here -->
+#o_container {
+  display: flex;
+  width: 100%;
+  border: 1px solid green;
+}
+
+#empty_opt {
+  width: 70%;
+}
+
+#b_container{
+  display:inline;
+  width: 28%;
+}
+
+.brandcell {
+  border: 1px solid orange;
+  display: block;
+  width: 28%;
+}
+
+#rd_container {
+  border: 1px solid red;
+  width: 70%;
+  float: right;
+}
+
+.radiobox {
+  border: 1px solid black;
+  display: inline-block;
+  width: 18%;
+}

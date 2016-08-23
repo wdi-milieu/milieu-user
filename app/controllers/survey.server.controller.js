@@ -166,7 +166,7 @@ module.exports = {
     var survey = new Survey(req.body);
     survey.save(function(err) {
       if (err) return next(err);
-      res.json(survey);
+      res.redirect('/users/dashboard');
     });
   },
   show: function(req, res) {
