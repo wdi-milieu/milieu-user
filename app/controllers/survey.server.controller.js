@@ -1,7 +1,9 @@
 var Survey = require('mongoose').model('Survey');
 var _ = require('underscore');
 var brands_arr = require('../../public/scripts/brands');
-var survey_arr = require('../../public/scripts/survey');
+var survey_arr = require('../../public/scripts/survey')
+var jwtMod = require('jsonwebtoken');
+var jwt_secret = 'supercalifragilisticexpialidocious';
 
 
 var totalCount, promotersCount, detractorsCount, npsReason, maleCount, femaleCount;
@@ -142,24 +144,37 @@ module.exports = {
 
 
   create: function(req, res, next) {
-    for (var i = 0; i < req.body.brandName.length; i++) {
-      console.log(req.body);
-      console.log(req.body.brandName.length);
-      surveyData = {};
-      surveyData['brandName'] = req.body.brandName[i];
-      surveyData['brandUsage'] = req.body.brandUsage[i];
-      surveyData['npsScore'] = req.body.npsScore[i];
-      surveyData['npsReason'] = req.body.npsReason[i];
-      surveyData['user'] = req.body.user[i];
+    var jwt = req.body.survey_jwt;
 
-      var survey = new Survey(surveyData);
-      console.log(survey);
-      survey.save(function(err) {
-        if (err) return next(err);
 
-      });
-      res.redirect('/users/dashboard');
+    var user;
+    jwtMod.verify(jwt, jwt_secret, function(err, decoded) {
+      if(err) return(err);
+      user = decoded.id;
+
+      for (var i = 0; i < req.body.brandName.length; i++) {
+        console.log("This is " + user);
+        console.log(req.body);
+        console.log(req.body.brandName.length);
+        surveyData = {};
+        surveyData['brandName'] = req.body.brandName[i];
+        surveyData['brandUsage'] = req.body.brandUsage[i];
+        surveyData['npsScore'] = req.body.npsScore[i];
+        surveyData['npsReason'] = req.body.npsReason[i];
+        surveyData['user'] = user;
+
+        var survey = new Survey(surveyData);
+        console.log(survey);
+        survey.save(function(err) {
+          if (err) return next(err);
+        });
     }
+    console.log("Hi There")
+    res.redirect('/users/dashboard');
+      //
+      // res.send(jwt);
+    });
+
 
   },
   show: function(req, res) {

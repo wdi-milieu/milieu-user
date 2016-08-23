@@ -9,4 +9,7 @@ $(function() {
           'slow');
   });
 
+
+  $("#jwt_token").val(localStorage.getItem('jwt_token'));
+
 });

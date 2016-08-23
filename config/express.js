@@ -52,6 +52,8 @@ module.exports = function() {
         '/contact',
         '/admin/login',
         '/surveys/take',
+        '/surveys',
+        '/users/dashboard',
         {
           url: new RegExp('/css.*/', 'i'),
           // method: ['GET']

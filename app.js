@@ -8,7 +8,7 @@ var db = mongoose();
 var app = express();
 
 // set port to 9000.
-app.set('port', (process.env.PORT || 9000));
+app.set('port', (process.env.PORT ||9000));
 
 //initialize npm start
 app.listen(app.get('port'), function() {
