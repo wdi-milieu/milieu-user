@@ -11,14 +11,86 @@ h3 {
   font-family: 'Hind Guntur', sans-serif;
 }
 
+#contactheader {
+  margin-top: 20%;
+}
+
+#contactsubmit {
+  display: block;
+  margin: 0 auto;
+}
+
+#formone, #formtwo, #formthree {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 2%;
+}
+
+#dashboardheader {
+  margin-top: 3%;
+  color:#FDA366;
+  font-size: 3em;
+  text-align: center;
+}
+
+.checkbox {
+  margin-left: 40%;
+}
+
+#surveyname {
+  padding-top: 17%;
+}
+
+.panel-heading {
+  background-color: #443742 !important
+}
+.panel-title {
+  color: white !important;
+}
+#survey {
+  background-color:#BFBDC1;
+  border-radius: 5px;
+  width: 50%;
+  height: 15vh;
+  color: white;
+}
+
+#survey:hover {
+background-color: #C7DFC5;
+}
+
+.panel {
+  text-align: center;
+}
+
+.panel-body {
+  height: 60vh;
+}
+
+#dashboardnav {
+  background-color: #FE7864;
+}
+
+#points {
+  color:black;
+  text-align: center;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
 .jumbotron {
-  height: 100vh;
+  height: 110vh;
   text-align: center;
   position: relative;
-  background: -webkit-linear-gradient(left top, #FC7864, #FDA366); /* For Safari 5.1 to 6.0 */
+  background: -webkit-linear-gradient(left top, #FE7864, #FDA366); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(bottom right, #FC7864, #FDA366); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(bottom right, #FC7864, #FDA366); /* For Firefox 3.6 to 15 */
   background: linear-gradient(to obottom right, #FC7864, #FDA366); /* Standard syntax */
+}
+
+#submitsurvey {
+  display: block;
+  margin: 0 auto;
 }
 
 
@@ -41,6 +113,59 @@ a svg:hover #arrowlink{
   display: none;
   margin-top: 30vh;
 }
+.form-group {
+  display: inline-block;
+  width: 46%;
+  text-align: center;
+  margin-left: 2%;
+}
+#signupform {
+  margin-top: 12%;
+}
+#signupsubmit {
+  display: block;
+  margin: 0 auto;
+}
+
+.title {
+  margin-top: 7%;
+  color: #FDA366;
+}
+
+select {
+  display: block;
+  margin: 0 auto;
+  margin-top: 2% !important;
+  margin-bottom: 2% !important;
+  width: 100%;
+  height: 30px !important;
+  background-color: white;
+}
+
+#people {
+  width: 20%;
+  height: 20%;
+  margin: 0 auto;
+  margin-top: 5%;
+  display: block;
+}
+
+#login-form {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 5%;
+  height: 21.5vh;
+}
+
+#login-btn {
+  margin: 0 auto;
+  display: block;
+}
+
+.navbar {
+  margin-top: -5%;
+  color: white;
+}
 
 .title{
   text-align: center;
@@ -58,4 +183,13 @@ a svg:hover #arrowlink{
 .main {
   width: 80vw;
   margin-bottom: 10%;
+}
+
+
+a {
+  color: white !important;
+}
+
+.dc-chart g.axis path {
+  fill: #AFBFC0 !important;
 }

@@ -25,7 +25,6 @@ app.post('/users', userController.create);
 
 
 app.post('/admin/login', function(req, res) {
-  console.log(req.body);
   var input_user = req.body;
 
   User.findOne({ email: input_user.email }, function (err, db_user) {
@@ -42,7 +41,7 @@ app.post('/admin/login', function(req, res) {
             email: db_user.email
           };
           var expiryObj = {
-            expiresIn: '3h'
+            expiresIn: '96h'
           };
           var jwt_token = jwt.sign(payload, jwt_secret, expiryObj);
 

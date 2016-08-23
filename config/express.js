@@ -54,6 +54,15 @@ module.exports = function() {
         '/surveys/take',
         '/surveys',
         '/users/dashboard',
+        '/api/surveys',
+        {
+          url: new RegExp('/logout'),
+          method: ['GET']
+        },
+        {
+          url: new RegExp('/surveys/take'),
+          method: ['GET']
+        },
         {
           url: new RegExp('/css.*/', 'i'),
           // method: ['GET']
@@ -67,9 +76,10 @@ module.exports = function() {
   );
 
   app.get('/logout', function(req,res) {
-    res.send(req.user);
+    // res.send(req.user);
     blacklist.revoke(req.user);
-    res.send('logout success!');
+    res.redirect('/');
+    // res.send('logout success!');
   });
 
   require('../app/routes/index.server.routes')(app); //require the routes indicated by index.server.routes for the app to function as the next flow.

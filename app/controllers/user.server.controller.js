@@ -5,12 +5,12 @@ var demographics_arr = require('../../public/scripts/demographics');
 module.exports = {
   login: function(req, res, next) {
     res.render('users/login', {
-      title: 'Log In Page'
+      title: 'LOG IN'
     });
   },
   dashboard: function(req, res, next) {
     res.render('users/dashboard', {
-      title: 'Dashboard'
+      title: 'DASH'
     });
 
   },
@@ -33,7 +33,7 @@ module.exports = {
   },
   new: function(req, res) {
     res.render('users/new', {
-      title: 'Sign Up',
+      title: 'SIGN UP',
       demographics: demographics_arr
     });
   },

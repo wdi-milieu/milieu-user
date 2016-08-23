@@ -109,22 +109,9 @@ module.exports = {
       "totalSurvey": brandIndex.total
      });
     }
-
     res.json({
       apiData,
-      // mergedRawData,
     });
-
-    // Survey.findOne({})
-    // .populate('user')
-    // .exec(function(err, surveys) {
-    //   if (err) res.status(400).send(err);
-    //   console.log("Gender is: " + surveys.user[0].gender);
-    //   res.json([
-    //     {surveys},
-    //     {mergedRawData}
-    //   ]);
-    // });
 
   },
 
@@ -136,7 +123,7 @@ module.exports = {
   },
   new: function(req, res) {
     res.render('surveys/take', {
-      title: 'Take A Survey',
+      title: 'TAKE',
       brands: brands_arr,
       survey: survey_arr
     });
@@ -153,9 +140,6 @@ module.exports = {
       user = decoded.id;
 
       for (var i = 0; i < req.body.brandName.length; i++) {
-        console.log("This is " + user);
-        console.log(req.body);
-        console.log(req.body.brandName.length);
         surveyData = {};
         surveyData['brandName'] = req.body.brandName[i];
         surveyData['brandUsage'] = req.body.brandUsage[i];
@@ -164,12 +148,10 @@ module.exports = {
         surveyData['user'] = user;
 
         var survey = new Survey(surveyData);
-        console.log(survey);
         survey.save(function(err) {
           if (err) return next(err);
         });
     }
-    console.log("Hi There")
     res.redirect('/users/dashboard');
       //
       // res.send(jwt);

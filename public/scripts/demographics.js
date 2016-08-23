@@ -35,10 +35,6 @@ var demographics_arr = [
       {
         value: 2,
         text: "Female"
-      },
-      {
-        value: 3,
-        text: "Neither"
       }
     ]
   },

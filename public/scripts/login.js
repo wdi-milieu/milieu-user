@@ -5,12 +5,9 @@ $(function() {
   var $email = $('#email');
   var $password = $('#password');
 
-  console.log("login.js loaded");
-
   $loginForm.submit(function(e) {
     e.preventDefault();
 
-    console.log("clicked on button");
 
     $.ajax({
           url: 'http://localhost:9000/admin/login',
@@ -26,9 +23,7 @@ $(function() {
           });
 
     function loginSuccess(res) {
-      alert('success login');
       localStorage.setItem('jwt_token', res);
-      console.log("saved jwt to browser: " + res);
       //redirect to surveys??
       window.location = '/surveys/take';
       // survey
