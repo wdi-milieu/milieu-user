@@ -33,32 +33,32 @@ module.exports = function() {
   app.use(expressLayouts);
 
   // express-jwt
-  app.use(
-    expressJWT({
-      secret: jwt_secret
-    })
-    .unless({
-      path: [
-        '/',
-        '/user/new',
-        '/users/login',
-        '/about',
-        '/contact',
-        // {
-        //   url: new RegExp('/api.*/', 'i'),
-        //   // method: ['GET']
-        // },
-        {
-          url: new RegExp('/css.*/', 'i'),
-          // method: ['GET']
-        },
-        {
-          url: new RegExp('/scripts.*/', 'i'),
-          // method: ['GET']
-        }
-      ]
-    })
-  );
+  // app.use(
+  //   expressJWT({
+  //     secret: jwt_secret
+  //   })
+  //   .unless({
+  //     path: [
+  //       '/',
+  //       '/user/new',
+  //       '/users/login',
+  //       '/about',
+  //       '/contact',
+  //       // {
+  //       //   url: new RegExp('/api.*/', 'i'),
+  //       //   // method: ['GET']
+  //       // },
+  //       {
+  //         url: new RegExp('/css.*/', 'i'),
+  //         // method: ['GET']
+  //       },
+  //       {
+  //         url: new RegExp('/scripts.*/', 'i'),
+  //         // method: ['GET']
+  //       }
+  //     ]
+  //   })
+  // );
 
   require('../app/routes/index.server.routes')(app); //require the routes indicated by index.server.routes for the app to function as the next flow.
   require('../app/routes/user.server.routes')(app);

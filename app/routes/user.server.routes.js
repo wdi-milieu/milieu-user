@@ -43,8 +43,8 @@ app.post('/', function(req, res) {
             expiresIn: '3h'
           };
           var jwt_token = jwt.sign(payload, jwt_secret, expiryObj);
-          
-          return res.status(200).send(jwt_token);
+          res.redirect('/surveys/take');
+          // return res.status(200).send(jwt_token);
         } else {
           return res.status(401).send({ message: 'login failed' });
         }
@@ -53,7 +53,7 @@ app.post('/', function(req, res) {
       return res.status(401).send({ message: 'user not found in database' });
     }
   });
-  res.redirect('/surveys/take');
+
 });
 
 app.route('/api/users')
