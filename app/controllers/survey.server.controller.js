@@ -76,23 +76,6 @@ Survey.aggregate([
     npsReason = result;
 });
 
-//match gender and retrieve npsScore
-Survey.aggregate([
-  { $match: { "user[0][gender]": 2 }}
-], function(err, result){
-    femaleCount = result;
-});
-
-// { $group: {
-//   _id: "$user",
-//   total: { $sum: 1 }
-// }},
-
-// { $unwind: "$user" },
-// { $group: {
-//   _id: "$user.gender", count: { $sum: 1 }
-// }}
-
 var brands_arr = require('../../public/scripts/brands');
 var survey_arr = require('../../public/scripts/survey');
 
@@ -126,29 +109,11 @@ module.exports = {
     }
 
     res.json({
-      // npsReason,
-      // femaleCount,
       apiData,
       // mergedRawData,
     });
-    // Survey.findOne({})
-    // .populate('user')
-    // .exec(function(err, surveys) {
-    //   if (err) res.status(400).send(err);
-    //   // console.log("Gender is: " + surveys.user[0].gender);
-    //   res.json(surveys);
-    // });
   },
 
-
-
-  // Survey.aggregate([
-  //   { $group: { _id: {$toUpper: "$brandName"}, total: { $avg: "$npsScore"}}}
-  // ], function(err, result){
-  //   if (err) next(err);
-  //
-  //   res.json(result);
-  // });
 
   edit: function (req, res, next) {
     res.render('surveys/edit', {
@@ -162,12 +127,28 @@ module.exports = {
       survey: survey_arr
     });
   },
+
+
   create: function(req, res, next) {
-    var survey = new Survey(req.body);
-    survey.save(function(err) {
-      if (err) return next(err);
+    for (var i = 0; i < req.body.brandName.length; i++) {
+      console.log(req.body);
+      console.log(req.body.brandName.length);
+      surveyData = {};
+      surveyData['brandName'] = req.body.brandName[i];
+      surveyData['brandUsage'] = req.body.brandUsage[i];
+      surveyData['npsScore'] = req.body.npsScore[i];
+      surveyData['npsReason'] = req.body.npsReason[i];
+      surveyData['user'] = "testuser";
+
+      var survey = new Survey(surveyData);
+      console.log(survey);
+      survey.save(function(err) {
+        if (err) return next(err);
+
+      });
       res.redirect('/users/dashboard');
-    });
+    }
+
   },
   show: function(req, res) {
     res.json(req.survey);

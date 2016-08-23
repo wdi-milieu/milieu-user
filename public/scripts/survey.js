@@ -1,7 +1,7 @@
 var survey_arr = [
   {
     question: "How would you describe your relationship with each of these brands?",
-    id: "survey_qn1",
+    name: "brandUsage",
     type: "radio",
     options: [
       {
@@ -28,7 +28,7 @@ var survey_arr = [
   },
   {
     question: "From a range of 1 to 10, 1 being the most unlikely, how likely are you to recommend each of these brands to your friends/colleagues or other people?",
-    id: "survey_qn2",
+    name: "npsScore",
     type: "radio",
     options: [
       {
@@ -75,7 +75,7 @@ var survey_arr = [
   },
   {
     question: "What are the key aspects that led you to give the above scores?",
-    id: "survey_qn3",
+    name: "npsReason",
     type: "radio",
     options: [
       {

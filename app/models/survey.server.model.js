@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var surveySchema = new mongoose.Schema({
-  _id: String,
+  // _id: String,
   brandName: String,
   brandUsage: Number,
   npsScore: Number,

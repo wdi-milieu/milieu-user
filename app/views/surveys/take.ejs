@@ -30,13 +30,13 @@
 
         <% brands.forEach(function(brandElem, index) { %>
           <tr>
-            <td class="brandcell" id="<%= brandElem.name %>">
+            <td class="brandcell" id="<%= brandElem.name %>" value="<%= brandElem.name %>" name="brandName">
               <%= brandElem.name %>
             </td>
 
-            <% surveyElem.options.forEach(function(optElem, index) { %>
-              <td class="radiobox" id="rdb<%= index %>">
-              <input type="radio" name="<%= brandElem.name %>" value="<%= optElem.value %>">
+            <% surveyElem.options.forEach(function(optElem, qindex) { %>
+              <td class="radiobox" id="rdb<%= qindex %>">
+              <input type="radio" name="<%= surveyElem.name %>[<%= index %>]" value="<%= optElem.value %>">
               </td>
             <% }) %>
 
@@ -47,7 +47,13 @@
     </table>
   <hr class>
 <% }}) %> <!-- end of for each survey function -->
+
+<% brands.forEach(function(brandElem, index) { %>
+  <input type="hidden" name="brandName" value="<%= brandElem.name %>">
+<% }) %>
+
 <button type="submit" class="btn btn-default">Submit Survey</button>
+
 </form> <!-- end of form -->
 
 </div> <!--end of container-->
