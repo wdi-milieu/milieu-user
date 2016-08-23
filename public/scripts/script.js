@@ -9,4 +9,18 @@ $(function() {
           'slow');
   });
 
+  $("#logout").click(function(e){
+    e.preventDefault();
+
+  //   jwtMod.verify(jwt, jwt_secret, function(err, decoded) {
+  //    if(err) return(err);
+
+//      return res.send(decoded);
+    blacklist.revoke(req.user);
+    res.redirect('/');
+   });
+
+    window.location = '/logout/' + localStorage.getItem('jwt_token');
+
+  });
 });
