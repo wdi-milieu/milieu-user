@@ -1,6 +1,9 @@
 var User = require('mongoose').model('User');
 var demographics_arr = require('../../public/scripts/demographics');
 
+
+
+
 module.exports = {
   login: function(req, res, next) {
     res.render('users/login', {

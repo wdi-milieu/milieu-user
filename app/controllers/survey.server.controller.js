@@ -19,7 +19,8 @@ Survey.aggregate([
 Survey.aggregate([
   { $match: {
     npsScore: { $gte: 9 },
-    datetaken: { $gte: '2016-08-20T05:46:05.514Z'}}},
+    datetaken: { $gte: '2016-08-20T05:46:05.514Z'}
+  }},
   { $group: {
     _id: "$brandName",
     promoters: { $sum: 1 }
@@ -114,7 +115,8 @@ module.exports = {
     for(var j = 0; j < totalCount.length; j++)  {
       var brandIndex = mergedRawData[j];
 
-      apiData.push({"Brand": brandIndex._id,
+      apiData.push({
+      "Brand": brandIndex._id,
       "NPS_Score": parseInt(brandIndex.promoters/brandIndex.total * 100) - parseInt(brandIndex.detractors/brandIndex.total * 100),
       "NPS_Reason1": parseInt(brandIndex.npsReason1/brandIndex.total * 100) + "%",
       "NPS_Reason2": parseInt(brandIndex.npsReason2/brandIndex.total * 100) + "%",
@@ -122,23 +124,19 @@ module.exports = {
       "totalSurvey": brandIndex.total
      });
     }
-    // console.log(user[0]);
+
     res.json({
       // npsReason,
       // femaleCount,
       apiData,
       // mergedRawData,
     });
-
     // Survey.findOne({})
     // .populate('user')
     // .exec(function(err, surveys) {
     //   if (err) res.status(400).send(err);
-    //   console.log("Gender is: " + surveys.user[0].gender);
-    //   res.json([
-    //     {surveys},
-    //     {mergedRawData}
-    //   ]);
+    //   // console.log("Gender is: " + surveys.user[0].gender);
+    //   res.json(surveys);
     // });
   },
 
