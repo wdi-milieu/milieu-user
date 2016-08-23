@@ -31,7 +31,7 @@ $(function() {
 
     function failResponse(req, textStatus, errThrown) {
       // alert('fail');
-      console.log("failResponse :" + req );
+      console.log("failResponse :" + req.body );
       console.log("fail error message :" + textStatus +  " " + errThrown);
     }
 

@@ -50,7 +50,7 @@ module.exports = function() {
         '/users/login',
         '/about',
         '/contact',
-        'https://evening-retreat-40915.herokuapp.com/admin/login',
+        '/admin/login',
         '/surveys/take',
         '/surveys',
         '/users/dashboard',
