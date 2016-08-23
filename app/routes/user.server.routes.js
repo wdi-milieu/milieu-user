@@ -18,8 +18,8 @@ app.get('/users/login', userController.login);
 
 app.post('/users', userController.create);
 
-// app.route('/api/users')
-//   .get(userController.index)
+app.route('/api/users')
+  .get(userController.index)
 //   .post(userController.create);
 //
 // app.route('/api/users/:id')
