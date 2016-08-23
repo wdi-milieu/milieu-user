@@ -8,31 +8,27 @@
   <form class="" action="/survey2" method="post">
   <% survey.forEach(function(surveyElem, index) { %>
 
-    <% if(surveyElem.type == "radio") { %>
+    <% if(surveyElem.question_type === "select image") { %>
 
     <table class="table">
-      <thead>
-        <tr id="qn_container">
-          <th colspan = <%=surveyElem.length + 1 %>>
-            <h4><%= surveyElem.question %></h4>
-          </th>
-        </tr>
 
+      <thead>
         <tr>
-          <th></th>
-        <% surveyElem.options.forEach(function(optElem, index) { %>
-          <th class="opt" id="opt<%= optElem.value %>"><%= optElem.text %></th>
-        <% }) %>
+            <th colspan = <%= surveyElem.options.length %>>
+              <h4><%= surveyElem.question %></h4>
+            </th>
         </tr>
       </thead>
 
       <tbody>
 
           <tr>
-            <td></td>
             <% surveyElem.options.forEach(function(optElem, qindex) { %>
               <td class="radiobox" id="rdb<%= qindex %>">
-              <input type="radio" name="mustache" value="<%= optElem.value %>">
+              <label>
+                <input type="radio" name="<%= surveyElem.qn_num %>" value="<%= optElem.value %>">
+                <img class="image" src="<%=optElem.image%>"><br>
+              </label>
               </td>
             <% }) %>
           </tr>
@@ -40,8 +36,21 @@
       </tbody>
 
     </table>
+
   <hr class>
-<% }}) %> <!-- end of for each survey function -->
+  <% } else { %>
+    <h4><%= surveyElem.question %></h4>
+    <img src="<%= surveyElem.image %>">
+      <% surveyElem.options.forEach(function(optElem, index) { %>
+        <div class="opt" id="opt<%= optElem.value %>">
+          <%= optElem.text %>
+        </div>
+      <% }) %>
+  <hr class>
+  <% } %><!-- end of if else function -->
+
+<% }) %> <!-- end of for each survey function -->
+<hr class>
 
 <button type="submit" class="btn btn-default">;)</button>
 

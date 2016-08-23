@@ -14,10 +14,10 @@ module.exports = {
   create: function(req, res, next){
     var survey = new Survey(req.body);
     survey.save(function(err){
-      if (err) return next(err);
+      if (err) return next(err); //return next(err);
+      console.log('save successful');
+      res.redirect('/');
     });
-    console.log('save successful');
-    res.redirect('/');
   }
 
 }; //module exports closing bracket

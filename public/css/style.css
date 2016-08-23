@@ -59,3 +59,28 @@ a svg:hover #arrowlink{
   width: 80vw;
   margin-bottom: 10%;
 }
+
+/* survey styling */
+table {
+  text-align: center;
+}
+
+label > input{ /* HIDE RADIO */
+  visibility: hidden; /* Makes input not-clickable */
+  position: absolute; /* Remove input from document flow */
+}
+label > input + img{ /* IMAGE STYLES */
+  cursor:pointer;
+}
+label > img {
+  opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+label > input:hover + img{ /* IMAGE STYLES */
+  opacity: 1;
+    filter: alpha(opacity=50);
+}
+label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+  opacity: 1;
+    filter: alpha(opacity=50);
+}

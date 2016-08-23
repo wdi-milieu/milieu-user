@@ -1,7 +1,14 @@
 var mongoose = require('mongoose');
 
 var classSurveySchema = new mongoose.Schema({
-  mustache: Number,
+  questionOne: {
+    type: Number,
+    required: true
+  },
+  questionTwo: {
+    type: Number,
+    required: true
+  },
   datetaken : { type : Date, default: Date.now }
 });
 
