@@ -38,7 +38,8 @@
     </table>
 
   <hr class>
-  <% } else { %>
+  <% } else if(surveyElem.question_type === "with image") { %>
+
     <h4><%= surveyElem.question %></h4>
     <img src="<%= surveyElem.image %>">
       <% surveyElem.options.forEach(function(optElem, index) { %>
@@ -48,10 +49,21 @@
         </div>
       <% }) %>
   <hr class>
+
+  <% } else if(surveyElem.question_type === "select text") { %>
+    
+    <h4><%= surveyElem.question %></h4>
+      <% surveyElem.options.forEach(function(optElem, index) { %>
+        <div class="opt" id="opt<%= optElem.value %>">
+          <%= optElem.text %>
+          <input type="radio" name="<%= surveyElem.qn_num %>" value="<%= optElem.value %>">
+        </div>
+      <% }) %>
+  <hr class>
+
   <% } %><!-- end of if else function -->
 
 <% }) %> <!-- end of for each survey function -->
-<hr class>
 
 <button type="submit" class="btn btn-default">;)</button>
 

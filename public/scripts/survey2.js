@@ -64,21 +64,20 @@ var survey_arr2 = [
     type: "radio",
     question_type: "select image",
     question: " \'random quote\' Who said this?",
-    image:"http://i1.wp.com/www.frugalbits.com/wp-content/uploads/2011/04/1-03012011anthro1_rect540.jpg",
     options: [
       {
         value: 1,
-        img: "",
+        image: "https://mir-s3-cdn-cf.behance.net/project_modules/disp/e98d6037810691.574d698a9b934.png",
         text: "person 1",
       },
       {
         value: 2,
-        img: "",
+        image: "https://mir-s3-cdn-cf.behance.net/project_modules/disp/9bf50937810691.574d698a99cfb.png",
         text: "person 2",
       },
       {
         value: 3,
-        img: "",
+        image: "https://mir-s3-cdn-cf.behance.net/project_modules/disp/9a13f337810691.574d698a9b293.png",
         text: "person 3",
       },
     ]
@@ -104,6 +103,7 @@ var survey_arr2 = [
     type: "radio",
     question_type: "with image",
     question: "This belongs to...",
+    image:"http://48bfc51361a55a01a028-17b283ac00835b5ced4db83c898330a1.r33.cf1.rackcdn.com/2325883_bb502d8c_m.jpeg",
     options: [
       {
         value: 1,
