@@ -46,6 +46,7 @@ module.exports = function() {
     .unless({
       path: [
         '/',
+        '/users',
         '/user/new',
         '/users/login',
         '/about',
