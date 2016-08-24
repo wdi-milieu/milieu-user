@@ -77,10 +77,10 @@ label > img {
     filter: alpha(opacity=50);
 }
 label > input:hover + img{ /* IMAGE STYLES */
-  opacity: 1;
+  opacity: 0.7;
     filter: alpha(opacity=50);
 }
 label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
   opacity: 1;
-    filter: alpha(opacity=50);
+  filter: alpha(opacity=50);
 }
