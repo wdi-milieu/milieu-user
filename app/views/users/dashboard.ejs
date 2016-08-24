@@ -1,138 +1,147 @@
-
-  <div id="dashboardnav" class="container-fluid">
+<div id="dashboardnav" class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <ul class="nav navbar-nav navbar-right">
-            <li><a id="logout" href="/logout">LOG OUT</a></li>
+        <li><a id="logout" href="/logout">LOG OUT</a></li>
     </ul>
-  </div><!-- /.container-fluid -->
+</div>
+<!-- /.container-fluid -->
 
-  <div>
-    <h3  id="dashboardheader"> <%=user.first_name%>'s Dashboard </h3>
+<div>
+    <h3 id="dashboardheader"> <%=user.first_name%>'s Dashboard </h3>
 
-    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <!-- <h1 class="page-header"><%=user.first_name%>'s Dashboard</h1> -->
-            <div class="panel panel-default">
-              <!-- Default panel contents -->
-              <!-- <div class="panel-heading">Profile of <%=user.firstName%></div> -->
+    <div class="col-md-10 col-md-offset-1">
 
-              <!-- Table -->
-              <table class="table">
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <!-- <div class="panel-heading">Profile of <%=user.firstName%></div> -->
+            <!-- Table -->
+            <table class="table">
 
                 <tbody>
-                  <tr>
-                    <td>Full Name</td>
-                    <td><%=user.first_name%> <%=user.last_name%></td>
-                  </tr>
-                  <tr>
-                    <td>email</td>
-                    <td><%=user.email%></td>
-                  </tr>
-                  <tr>
-                    <td>Gender</td>
-                    <td><% if (user.gender == 2) { %>
-                                      Female
-                                <% } else { %>
-                                      Male
-                                <% } %></td>
-                  </tr>
-                  <tr>
-                    <td>Age Group</td>
-                    <td><% if (user.age == 1) { %>
-                          16 - 35 years old
-                    <% } else if (user.age == 2) { %>
-                          36 - 50 years old
-                    <% } else if (user.age == 3) { %>
-                          above 50 years old
-                    <% } %></td>
-                  </tr>
-                  <tr>
-                    <td>Ethnicity</td>
-                    <td><% if (user.ethnicity == 1) { %>
-                          Chinese
-                    <% } else if (user.ethnicity == 2) { %>
-                          Malay
-                    <% } else if (user.ethnicity == 3) { %>
-                          Indian
-                    <% } else if (user.ethnicity == 4) { %>
-                          Other
-                    <% } %></td>
-                  </tr>
-                  <tr>
-                    <td>Household Income</td>
-                    <td><% if (user.householdIncome == 1) { %>
-                          Below SGD 3,000
-                    <% } else if (user.householdIncome == 2) { %>
-                          SGD 3,000 - 5,999
-                    <% } else if (user.householdIncome == 3) { %>
-                          SGD 6,000 - 14,999
-                    <% } else if (user.householdIncome == 4) { %>
-                          SGD 15,000 or above
-                    <% } %></td>
-                  </tr>
-                  <tr>
-                    <td>Political Party</td>
-                    <td><% if (user.politicalParty == 1) { %>
-                          People Action Party (PAP)
-                    <% } else { %>
-                          Opposition
-                    <% } %>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Time On Line</td>
-                    <td><% if (user.timeOnline == 1) { %>
-                          less than 2 hours
-                    <% } else if (user.timeOnline == 2) { %>
-                          more than 2 hours, less than 5 hours
-                    <% } else if (user.timeOnline == 3) { %>
-                          more than 6 hours
-                    <% } %></td>
-                  </tr>
+                    <tr>
+                        <td>Full Name</td>
+                        <td>
+                            <%=user.first_name%> <%=user.last_name%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>email</td>
+                        <td><%=user.email%></td>
+                    </tr>
+                    <tr>
+                        <td>Gender</td>
+                        <td>
+                            <% if (user.gender == 2) { %>
+                                  Female
+                            <% } else { %>
+                                  Male
+                            <% } %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Age Group</td>
+                        <td>
+                            <% if (user.age == 1) { %>
+                                  16 - 35 years old
+                            <% } else if (user.age == 2) { %>
+                                  36 - 50 years old
+                            <% } else if (user.age == 3) { %>
+                                  above 50 years old
+                            <% } %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ethnicity</td>
+                        <td>
+                            <% if (user.ethnicity == 1) { %>
+                                  Chinese
+                            <% } else if (user.ethnicity == 2) { %>
+                                  Malay
+                            <% } else if (user.ethnicity == 3) { %>
+                                  Indian
+                            <% } else if (user.ethnicity == 4) { %>
+                                  Other
+                            <% } %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Household Income</td>
+                        <td>
+                            <% if (user.householdIncome == 1) { %>
+                                  Below SGD 3,000
+                            <% } else if (user.householdIncome == 2) { %>
+                                  SGD 3,000 - 5,999
+                            <% } else if (user.householdIncome == 3) { %>
+                                  SGD 6,000 - 14,999
+                            <% } else if (user.householdIncome == 4) { %>
+                                  SGD 15,000 or above
+                            <% } %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Political Party</td>
+                        <td>
+                            <% if (user.politicalParty == 1) { %>
+                                  People Action Party (PAP)
+                            <% } else { %>
+                                  Opposition
+                            <% } %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Time On Line</td>
+                        <td>
+                            <% if (user.timeOnline == 1) { %>
+                                  less than 2 hours
+                            <% } else if (user.timeOnline == 2) { %>
+                                  more than 2 hours, less than 5 hours
+                            <% } else if (user.timeOnline == 3) { %>
+                                  more than 6 hours
+                            <% } %>
+                        </td>
+                    </tr>
 
                 </tbody>
-              </table>
+            </table>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5 col-md-offset-1">
+                <h4 id="points"> TOTAL POINTS l 200 </h4>
             </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h4 id="points"> POINTS l 200 </h4>
-
-    <div class="row">
-      <div class="col-md-5 col-md-offset-1">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title" id="twitterbutton"> BRAND PERFORMANCE STANDINGS </h3>
-          </div>
-          <div class="panel-body" id="graph">
-            <p class="explain"> % of Promoters (9,10 rating) minus % of Detractors (0-6 rating) </p>
-          <div id="chart-row-nps"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-5">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">TAKE NEW SURVEYS!</h3>
-          </div>
-          <div class="panel-body" id="graph">
-            <div id="survey">
-              <p id="surveyname">Your Mystery Survey </p>
+            <div class="col-md-5 col-md-offset-1">
+                <h4 id="points"> TOTAL SURVEYS TAKEN l <%=user.survey.length%> </h4>
             </div>
-          </div>
         </div>
-      </div>
-  </div>
-</div>
+
+
+
+
+        <div class="row">
+            <div class="col-md-5 col-md-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" id="twitterbutton"> BRAND PERFORMANCE STANDINGS </h3>
+                    </div>
+                    <div class="panel-body" id="graph">
+                        <p class="explain"> % of Promoters (9,10 rating) minus % of Detractors (0-6 rating) </p>
+                        <div id="chart-row-nps"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">TAKE NEW SURVEYS!</h3>
+                    </div>
+                    <div class="panel-body" id="graph">
+                        <div id="survey">
+                            <p id="surveyname">Your Mystery Survey </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
