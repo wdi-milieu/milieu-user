@@ -41,7 +41,7 @@ module.exports = {
     var user = new User(req.body);
     user.save(function(err) {
       if (err) return next(err);
-      res.redirect('/surveys/index');
+      res.redirect('/surveys/take');
     });
   },
   show: function(req, res) {
