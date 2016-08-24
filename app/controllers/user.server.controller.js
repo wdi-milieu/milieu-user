@@ -9,9 +9,17 @@ module.exports = {
     });
   },
   dashboard: function(req, res, next) {
-    res.render('users/dashboard', {
-      title: 'DASH'
+
+    User.findOne({},function(err,results){
+      if(err) console.log(err);
+      console.log(results);
+
+      res.render('users/dashboard', {
+      title: 'Dashboard',
+      user:results,
+
     });
+  });
 
   },
   all: function(req, res, next) {
