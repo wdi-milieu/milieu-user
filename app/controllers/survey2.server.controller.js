@@ -222,7 +222,7 @@ module.exports = {
         classSurveyResult['q6opt3'] = parseInt((question6[0].opt4 / (question6[0].opt1 + question6[0].opt2 + question6[0].opt3 + question6[0].opt4) )*100);
 
 
-    res.json({classSurveyResult});
+    res.json(classSurveyResult);
   }, //close index function
 
   new: function(req, res){
