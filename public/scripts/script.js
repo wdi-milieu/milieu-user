@@ -3,10 +3,23 @@ $(function() {
   $("#brandname").fadeIn(4000);
 
 
-  $("#arrow").click(function() {
+  $("#arrow").click(function(e) {
+    e.preventDefault();
     $('html,body').animate({
         scrollTop: $("#navigate").offset().top},
           'slow');
+  });
+
+  $(".arrow_test").click(function(e) {
+    e.preventDefault();
+    var target = $(this).attr('href');
+    $('html,body').animate({
+        scrollTop: $(target).offset().top},
+          'slow');
+
+    // $('html,body').animate({
+    //     scrollTop: $("#navigate").offset().top},
+    //       'slow');
   });
 
 

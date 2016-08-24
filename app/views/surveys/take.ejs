@@ -11,7 +11,7 @@
 
     <% if(surveyElem.type == "radio") { %>
     <table class="table">
-      <thead id="surveyQn_<%= index %>">
+      <thead class="anchor" id="surveyQn_<%= index %>">
         <tr id="qn_container">
           <th colspan = <%=surveyElem.options.length + 1 %>>
             <h4><%= surveyElem.question %></h4>
@@ -40,13 +40,11 @@
       </tbody>
     </table>
   <hr class>
-  <div id="surveyArrow">
-    <a href="#surveyQn_<%= index+1 %>">
-      <svg width="70" height="40" viewBox="-2.5 -5 75 60" preserveAspectRatio="none">
-        <path  id="arrowlink" d="M0,0 l35,50 l35,-50" fill="none" stroke="black" stroke-linecap="round" stroke-width="2" />
-      </svg>
-    </a>
-  </div>
+  <a href="#surveyQn_<%= index+1 %>" class="arrow_test">
+    <svg width="70" height="40" viewBox="-2.5 -5 75 60" preserveAspectRatio="none">
+      <path  id="arrowlink" d="M0,0 l35,50 l35,-50" fill="none" stroke="black" stroke-linecap="round" stroke-width="2" />
+    </svg>
+  </a>
 <% }}) %> <!-- end of for each survey function -->
 
 <% brands.forEach(function(brandElem, index) { %>
