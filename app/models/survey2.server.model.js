@@ -9,6 +9,22 @@ var classSurveySchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  questionThree: {
+    type: Number,
+    required: true
+  },
+  questionFour: {
+    type: Number,
+    required: true
+  },
+  questionFive: {
+    type: Number,
+    required: true
+  },
+  questionSix: {
+    type: Number,
+    required: true
+  },
   datetaken : { type : Date, default: Date.now }
 });
 
