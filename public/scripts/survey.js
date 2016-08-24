@@ -6,7 +6,7 @@ var survey_arr = [
     options: [
       {
         value: 1,
-        text: "It’s a important part of my life. (I use this brand heavily, and would feel a loss without it)"
+        text: "It’s an important part of my life. (I use this brand heavily, and would feel a loss without it)"
       },
       {
         value: 2,
