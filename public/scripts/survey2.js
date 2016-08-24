@@ -7,12 +7,12 @@ var survey_arr2 = [
     options: [
       {
         value: 1,
-        image:"http://1.bp.blogspot.com/-ZEItdhqMjrE/UZgE9GfzNNI/AAAAAAAAHTs/AMbRZteqBGs/s400/collage.jpg",
+        image:"http://i.imgur.com/qOFxgHO.jpg?1",
         text: "Yogamaster",
       },
       {
         value: 2,
-        image: "http://i1.wp.com/www.frugalbits.com/wp-content/uploads/2011/04/1-03012011anthro1_rect540.jpg",
+        image: "http://i.imgur.com/9hF8SBk.jpg",
         text: "Weird Creep",
       }
     ]
@@ -26,15 +26,15 @@ var survey_arr2 = [
     options: [
       {
         value: 1,
-        text: "Fancy Shirt",
+        text: "person1",
       },
       {
         value: 2,
-        text: "Holy Sandals",
+        text: "person2",
       },
       {
         value: 3,
-        text: "Floating Cap",
+        text: "person3",
       },
     ]
   },
@@ -42,20 +42,20 @@ var survey_arr2 = [
     qn_num: "questionThree",
     type: "radio",
     question_type: "with image",
-    question: "Who's tic tac toe is this?",
-    image:"http://i1.wp.com/www.frugalbits.com/wp-content/uploads/2011/04/1-03012011anthro1_rect540.jpg",
+    question: "Who made this tic-tac-toe?",
+    image:"http://i.imgur.com/4P8jiXq.png",
     options: [
       {
         value: 1,
-        text: "tictactoe 1",
+        text: "Nicholas",
       },
       {
         value: 2,
-        text: "tictactoe 2",
+        text: "Kai",
       },
       {
         value: 3,
-        text: "tictactoe 3",
+        text: "Dylan",
       },
     ]
   },
@@ -86,15 +86,15 @@ var survey_arr2 = [
     qn_num: "questionFive",
     type: "radio",
     question_type: "select text",
-    question: "Divisive Question",
+    question: "Annexe 3 or Original Classroom?",
     options: [
       {
         value: 1,
-        text: "Selection 1",
+        text: "Annexe 3",
       },
       {
         value: 2,
-        text: "Selection 2",
+        text: "Bombshelter",
       }
     ]
   },
@@ -102,28 +102,24 @@ var survey_arr2 = [
     qn_num: "questionSix",
     type: "radio",
     question_type: "with image",
-    question: "This belongs to...",
-    image:"http://48bfc51361a55a01a028-17b283ac00835b5ced4db83c898330a1.r33.cf1.rackcdn.com/2325883_bb502d8c_m.jpeg",
+    question: "This facebook profile picture belongs to...",
+    image:"https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/534585_10150986098449219_2051757876_n.jpg?oh=e57ae978fe17b508417ab115ae3edb39&oe=585C53AA",
     options: [
       {
         value: 1,
-        img: "",
-        text: "person 1",
+        text: "Barney",
       },
       {
         value: 2,
-        img: "",
-        text: "person 2",
+        text: "Curian",
       },
       {
         value: 3,
-        img: "",
-        text: "person 3",
+        text: "Edison",
       },
       {
         value: 4,
-        img: "",
-        text: "person 4",
+        text: "Veronica",
       }
     ]
   },

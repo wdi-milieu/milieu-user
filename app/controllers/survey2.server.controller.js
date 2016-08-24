@@ -189,13 +189,6 @@ module.exports = {
 
   index: function(req, res){
     //this is for api export & json things
-    //
-    // mergeQuestionResult.push(_.extend({}, question1, question2, question3, question4, question5, question6));
-
-    console.log(question1[0].opt1);
-    console.log(question1[0].opt2);
-    console.log(question1[0].opt1 + question1[0].opt2);
-    console.log(question1[0].opt1 / (question1[0].opt1 + question1[0].opt2) );
 
     var classSurveyResult = {};
 

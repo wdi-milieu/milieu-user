@@ -27,7 +27,7 @@
               <td class="radiobox" id="rdb<%= qindex %>">
               <label>
                 <input type="radio" name="<%= surveyElem.qn_num %>" value="<%= optElem.value %>">
-                <img class="image" src="<%=optElem.image%>"><br>
+                <img class="image" src="<%=optElem.image%>" id="<%=optElem.text%>"><br>
               </label>
               </td>
             <% }) %>
@@ -41,7 +41,7 @@
   <% } else if(surveyElem.question_type === "with image") { %>
 
     <h4><%= surveyElem.question %></h4>
-    <img src="<%= surveyElem.image %>">
+    <img src="<%= surveyElem.image %>" id="<%= surveyElem.qn_num %>">
       <% surveyElem.options.forEach(function(optElem, index) { %>
         <div class="opt" id="opt<%= optElem.value %>">
           <%= optElem.text %>
@@ -51,7 +51,7 @@
   <hr class>
 
   <% } else if(surveyElem.question_type === "select text") { %>
-    
+
     <h4><%= surveyElem.question %></h4>
       <% surveyElem.options.forEach(function(optElem, index) { %>
         <div class="opt" id="opt<%= optElem.value %>">
