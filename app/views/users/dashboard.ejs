@@ -1,1 +1,39 @@
-<h4> This is to show the user dashboard for the user.</h4>
+
+  <div id="dashboardnav" class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <ul class="nav navbar-nav navbar-right">
+            <li><a id="logout" href="/logout">LOG OUT</a></li>
+    </ul>
+  </div><!-- /.container-fluid -->
+
+  <div>
+    <h3  id="dashboardheader"> Your Dashboard </h3>
+    <h4 id="points"> POINTS l 200 </h4>
+
+    <div class="row">
+      <div class="col-md-5 col-md-offset-1">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title" id="twitterbutton"> BRAND PERFORMANCE STANDINGS </h3>
+          </div>
+          <div class="panel-body" id="graph">
+            <p class="explain"> % of Promoters (9,10 rating) minus % of Detractors (0-6 rating) </p>
+          <div id="chart-row-nps"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-5">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">TAKE NEW SURVEYS!</h3>
+          </div>
+          <div class="panel-body" id="graph">
+            <div id="survey">
+              <p id="surveyname">Your Mystery Survey </p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

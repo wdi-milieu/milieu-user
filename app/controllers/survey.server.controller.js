@@ -1,5 +1,10 @@
 var Survey = require('mongoose').model('Survey');
 var _ = require('underscore');
+var brands_arr = require('../../public/scripts/brands');
+var survey_arr = require('../../public/scripts/survey')
+var jwtMod = require('jsonwebtoken');
+var jwt_secret = 'supercalifragilisticexpialidocious';
+
 
 var totalCount, promotersCount, detractorsCount, npsReason, maleCount, femaleCount;
 var mergedRawData = [];
@@ -19,7 +24,8 @@ Survey.aggregate([
 Survey.aggregate([
   { $match: {
     npsScore: { $gte: 9 },
-    datetaken: { $gte: '2016-08-20T05:46:05.514Z'}}},
+    datetaken: { $gte: '2016-08-20T05:46:05.514Z'}
+  }},
   { $group: {
     _id: "$brandName",
     promoters: { $sum: 1 }
@@ -75,26 +81,6 @@ Survey.aggregate([
     npsReason = result;
 });
 
-//match gender and retrieve npsScore
-Survey.aggregate([
-  { $match: { "user[0][gender]": 2 }}
-], function(err, result){
-    femaleCount = result;
-});
-
-// { $group: {
-//   _id: "$user",
-//   total: { $sum: 1 }
-// }},
-
-// { $unwind: "$user" },
-// { $group: {
-//   _id: "$user.gender", count: { $sum: 1 }
-// }}
-
-var brands_arr = require('../../public/scripts/brands');
-var survey_arr = require('../../public/scripts/survey');
-
 module.exports = {
   all: function (req, res, next) {
     res.render('surveys/index', {
@@ -114,7 +100,8 @@ module.exports = {
     for(var j = 0; j < totalCount.length; j++)  {
       var brandIndex = mergedRawData[j];
 
-      apiData.push({"Brand": brandIndex._id,
+      apiData.push({
+      "Brand": brandIndex._id,
       "NPS_Score": parseInt(brandIndex.promoters/brandIndex.total * 100) - parseInt(brandIndex.detractors/brandIndex.total * 100),
       "NPS_Reason1": parseInt(brandIndex.npsReason1/brandIndex.total * 100) + "%",
       "NPS_Reason2": parseInt(brandIndex.npsReason2/brandIndex.total * 100) + "%",
@@ -122,35 +109,12 @@ module.exports = {
       "totalSurvey": brandIndex.total
      });
     }
-    // console.log(user[0]);
     res.json({
-      // npsReason,
-      // femaleCount,
       apiData,
-      // mergedRawData,
     });
 
-    // Survey.findOne({})
-    // .populate('user')
-    // .exec(function(err, surveys) {
-    //   if (err) res.status(400).send(err);
-    //   console.log("Gender is: " + surveys.user[0].gender);
-    //   res.json([
-    //     {surveys},
-    //     {mergedRawData}
-    //   ]);
-    // });
   },
 
-
-
-  // Survey.aggregate([
-  //   { $group: { _id: {$toUpper: "$brandName"}, total: { $avg: "$npsScore"}}}
-  // ], function(err, result){
-  //   if (err) next(err);
-  //
-  //   res.json(result);
-  // });
 
   edit: function (req, res, next) {
     res.render('surveys/edit', {
@@ -159,17 +123,41 @@ module.exports = {
   },
   new: function(req, res) {
     res.render('surveys/take', {
-      title: 'Take A Survey',
+      title: 'TAKE',
       brands: brands_arr,
       survey: survey_arr
     });
   },
+
+
   create: function(req, res, next) {
-    var survey = new Survey(req.body);
-    survey.save(function(err) {
-      if (err) return next(err);
-      res.json(survey);
+    var jwt = req.body.survey_jwt;
+
+
+    var user;
+    jwtMod.verify(jwt, jwt_secret, function(err, decoded) {
+      if(err) return(err);
+      user = decoded.id;
+
+      for (var i = 0; i < req.body.brandName.length; i++) {
+        surveyData = {};
+        surveyData['brandName'] = req.body.brandName[i];
+        surveyData['brandUsage'] = req.body.brandUsage[i];
+        surveyData['npsScore'] = req.body.npsScore[i];
+        surveyData['npsReason'] = req.body.npsReason[i];
+        surveyData['user'] = user;
+
+        var survey = new Survey(surveyData);
+        survey.save(function(err) {
+          if (err) return next(err);
+        });
+    }
+    res.redirect('/users/dashboard');
+      //
+      // res.send(jwt);
     });
+
+
   },
   show: function(req, res) {
     res.json(req.survey);

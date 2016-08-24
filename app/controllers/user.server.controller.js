@@ -1,16 +1,18 @@
 var User = require('mongoose').model('User');
 var demographics_arr = require('../../public/scripts/demographics');
 
+
 module.exports = {
   login: function(req, res, next) {
     res.render('users/login', {
-      title: 'Log In Page'
+      title: 'LOG IN'
     });
   },
   dashboard: function(req, res, next) {
     res.render('users/dashboard', {
-      title: 'Dashboard'
+      title: 'DASH'
     });
+
   },
   all: function(req, res, next) {
     res.render('users/index', {
@@ -24,7 +26,6 @@ module.exports = {
   },
   index: function(req, res, next) {
     User.find({})
-    .populate('survey')
     .exec(function(err, users) {
       if (err) res.status(400).send(err);
       res.json(users);
@@ -32,7 +33,7 @@ module.exports = {
   },
   new: function(req, res) {
     res.render('users/new', {
-      title: 'Sign Up',
+      title: 'SIGN UP',
       demographics: demographics_arr
     });
   },
@@ -40,7 +41,7 @@ module.exports = {
     var user = new User(req.body);
     user.save(function(err) {
       if (err) return next(err);
-      res.redirect('/surveys/index');
+      res.redirect('/surveys/take');
     });
   },
   show: function(req, res) {

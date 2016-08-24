@@ -1,4 +1,5 @@
 // This file is an initializer for an express application.
+var jwt_secret = 'supercalifragilisticexpialidocious';
 
 //1) Requiring necessary modules.
 var express = require('express'), // Express module.
@@ -6,8 +7,11 @@ var express = require('express'), // Express module.
     compress = require('compression'), //compression middleware for web performance.
     bodyParser = require('body-parser'), // Parses the body of a request stream in desired format (urlencoded/json defined below) and makes it readable under req.body method.
     methodOverride = require('method-override'), //Middleware function to override req.method property and allow other syntax to be used.(i.e. lets you use http verbs).
-    expressLayouts = require('express-ejs-layouts'); //Allow for ejs layouts and syntax. (e.g. <%- body %>).
-
+    expressLayouts = require('express-ejs-layouts'), //Allow for ejs layouts and syntax. (e.g. <%- body %>).
+    expressJWT = require('express-jwt'),
+    jwt = require('jsonwebtoken'),
+    blacklist = require('express-jwt-blacklist'),
+    cookieParser = require('cookie-parser');
 
 //2) Creating a module exports function that specifies app structure and module usage across production/development.
 
@@ -22,12 +26,62 @@ module.exports = function() {
   }
   app.use(bodyParser.json()); //use bodyparser in json format
   app.use(bodyParser.urlencoded({extended: true})); //use bodyparser in urlencoded format.
-
+  app.use(cookieParser());
   app.use(methodOverride()); //use method override.
 
   app.set('views', './app/views'); // set views to be in app/views folder.
   app.set('view engine', 'ejs'); //set views to use ejs.
   app.use(expressLayouts);
+
+  blacklist.configure ({
+    tokenId: 'id'
+  });
+
+  // express-jwt
+  app.use(
+    expressJWT({
+      secret: jwt_secret,
+      isRevoked: blacklist.isRevoked
+    })
+    .unless({
+      path: [
+        '/',
+        '/users',
+        '/user/new',
+        '/users/login',
+        '/about',
+        '/contact',
+        '/admin/login',
+        '/surveys/take',
+        '/surveys',
+        '/users/dashboard',
+        '/api/surveys',
+        {
+          url: new RegExp('/logout'),
+          method: ['GET']
+        },
+        {
+          url: new RegExp('/surveys/take'),
+          method: ['GET']
+        },
+        {
+          url: new RegExp('/css.*/', 'i'),
+          // method: ['GET']
+        },
+        {
+          url: new RegExp('/scripts.*/', 'i'),
+          // method: ['GET']
+        }
+      ]
+    })
+  );
+
+  app.get('/logout', function(req,res) {
+    // res.send(req.user);
+    blacklist.revoke(req.user);
+    res.redirect('/');
+    // res.send('logout success!');
+  });
 
   require('../app/routes/index.server.routes')(app); //require the routes indicated by index.server.routes for the app to function as the next flow.
   require('../app/routes/user.server.routes')(app);
