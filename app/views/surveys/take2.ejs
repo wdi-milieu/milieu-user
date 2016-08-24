@@ -44,6 +44,7 @@
       <% surveyElem.options.forEach(function(optElem, index) { %>
         <div class="opt" id="opt<%= optElem.value %>">
           <%= optElem.text %>
+          <input type="radio" name="<%= surveyElem.qn_num %>" value="<%= optElem.value %>">
         </div>
       <% }) %>
   <hr class>

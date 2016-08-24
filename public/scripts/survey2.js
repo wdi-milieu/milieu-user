@@ -26,14 +26,107 @@ var survey_arr2 = [
     options: [
       {
         value: 1,
-        text: "Shirt",
+        text: "Fancy Shirt",
       },
       {
         value: 2,
-        text: "Sandals",
+        text: "Holy Sandals",
+      },
+      {
+        value: 3,
+        text: "Floating Cap",
+      },
+    ]
+  },
+  {
+    qn_num: "questionThree",
+    type: "radio",
+    question_type: "with image",
+    question: "Who's tic tac toe is this?",
+    image:"http://i1.wp.com/www.frugalbits.com/wp-content/uploads/2011/04/1-03012011anthro1_rect540.jpg",
+    options: [
+      {
+        value: 1,
+        text: "tictactoe 1",
+      },
+      {
+        value: 2,
+        text: "tictactoe 2",
+      },
+      {
+        value: 3,
+        text: "tictactoe 3",
+      },
+    ]
+  },
+  {
+    qn_num: "questionFour",
+    type: "radio",
+    question_type: "select image",
+    question: " \'random quote\' Who said this?",
+    image:"http://i1.wp.com/www.frugalbits.com/wp-content/uploads/2011/04/1-03012011anthro1_rect540.jpg",
+    options: [
+      {
+        value: 1,
+        img: "",
+        text: "person 1",
+      },
+      {
+        value: 2,
+        img: "",
+        text: "person 2",
+      },
+      {
+        value: 3,
+        img: "",
+        text: "person 3",
+      },
+    ]
+  },
+  {
+    qn_num: "questionFive",
+    type: "radio",
+    question_type: "select text",
+    question: "Divisive Question",
+    options: [
+      {
+        value: 1,
+        text: "Selection 1",
+      },
+      {
+        value: 2,
+        text: "Selection 2",
       }
     ]
-  }
+  },
+  {
+    qn_num: "questionSix",
+    type: "radio",
+    question_type: "with image",
+    question: "This belongs to...",
+    options: [
+      {
+        value: 1,
+        img: "",
+        text: "person 1",
+      },
+      {
+        value: 2,
+        img: "",
+        text: "person 2",
+      },
+      {
+        value: 3,
+        img: "",
+        text: "person 3",
+      },
+      {
+        value: 4,
+        img: "",
+        text: "person 4",
+      }
+    ]
+  },
 
 ];
 
