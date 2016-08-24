@@ -25,11 +25,7 @@ $(function() {
         npsRowChart = dc.rowChart("#chart-row-nps");
     var data1 = [
         {Name: data[0].Brand, npsScore: data[0].NPS_Score, category: "TECH",'total': 5},
-        {Name: data[1].Brand, npsScore: data[1].NPS_Score, category:" FMCG",'total': 5},
-        {Name: data[2].Brand, npsScore: data[2].NPS_Score, category: " FMCG",'total': 3},
         {Name: data[3].Brand, npsScore: data[3].NPS_Score, category: "TECH",'total': 5},
-        {Name: data[4].Brand, npsScore: data[4].NPS_Score, category: " FMCG",'total': 5},
-        {Name: data[5].Brand, npsScore: data[5].NPS_Score, category: "TECH",'total': 5},
         {Name: data[6].Brand, npsScore: data[6].NPS_Score, category: " TELCO",'total': 3},
         {Name: data[7].Brand, npsScore: data[7].NPS_Score, category: " TELCO",'total': 3},
         {Name: data[8].Brand, npsScore: data[8].NPS_Score, category: "ASS",'total': 2},
@@ -50,10 +46,10 @@ $(function() {
             .ordinalColors(['#2B3D41', '#216869', '#56445D','#546A76'])
             .innerRadius(40);
         npsRowChart
-            .width(450).height(430)
+            .width(450).height(270)
             .dimension(nameDim)
             .group(npsScorePerName)
-            .ordinalColors(['#98C1D9','#98C1D9','#98C1D9','#98C1D9','#98C1D9','#98C1D9','#98C1D9','#98C1D9','#EDBBB4'])
+            .ordinalColors(['#98C1D9','#98C1D9','#98C1D9','#98C1D9','#EDBBB4'])
             .elasticX(true);
         dc.renderAll();
     }

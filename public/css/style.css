@@ -33,8 +33,26 @@ h3 {
   text-align: center;
 }
 
+#surveystaken {
+  margin-right: 5%;
+  margin-left: 6%;
+}
+
+#table {
+  width: 80%;
+  height:25%;
+  margin: 0 auto;
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+
 .checkbox {
   margin-left: 40%;
+}
+
+#mystsurvey {
+  display: block;
+  padding: 45px;
 }
 
 #surveyname {
@@ -64,7 +82,7 @@ background-color: #C7DFC5;
 }
 
 .panel-body {
-  height: 60vh;
+  height: 40vh;
 }
 
 #dashboardnav {
@@ -75,7 +93,7 @@ background-color: #C7DFC5;
   color:black;
   text-align: center;
   margin-top: 2%;
-  margin-bottom: 2%;
+  margin-bottom: 4%;
 }
 
 .jumbotron {
@@ -185,11 +203,35 @@ select {
   margin-bottom: 10%;
 }
 
-
 a {
   color: white !important;
 }
 
 .dc-chart g.axis path {
   fill: #AFBFC0 !important;
+}
+/* survey styling */
+
+table {
+  text-align: center;
+}
+
+label > input{ /* HIDE RADIO */
+  visibility: hidden; /* Makes input not-clickable */
+  position: absolute; /* Remove input from document flow */
+}
+label > input + img{ /* IMAGE STYLES */
+  cursor:pointer;
+}
+label > img {
+  opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+label > input:hover + img{ /* IMAGE STYLES */
+  opacity: 0.7;
+    filter: alpha(opacity=50);
+}
+label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+  opacity: 1;
+  filter: alpha(opacity=50);
 }

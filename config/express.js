@@ -56,6 +56,9 @@ module.exports = function() {
         '/surveys',
         '/users/dashboard',
         '/api/surveys',
+        '/survey2/take',
+        '/api/wdi4survey',
+        '/survey2',
         {
           url: new RegExp('/logout'),
           method: ['GET']
@@ -86,6 +89,7 @@ module.exports = function() {
   require('../app/routes/index.server.routes')(app); //require the routes indicated by index.server.routes for the app to function as the next flow.
   require('../app/routes/user.server.routes')(app);
   require('../app/routes/survey.server.routes')(app);
+  require('../app/routes/survey2.server.routes')(app);
 
   app.use(express.static('./public')); // links public folder w assets.
 

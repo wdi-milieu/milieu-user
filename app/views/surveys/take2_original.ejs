@@ -1,0 +1,50 @@
+<div class="container-fluid main">
+
+  <div>
+    <h3  class="title">WDI4 SURVEY</h3>
+  </div>
+  <hr class="hr">
+
+  <form class="" action="/survey2" method="post">
+  <% survey.forEach(function(surveyElem, index) { %>
+
+    <% if(surveyElem.type == "radio") { %>
+
+    <table class="table">
+      <thead>
+        <tr id="qn_container">
+          <th colspan = <%=surveyElem.length + 1 %>>
+            <h4><%= surveyElem.question %></h4>
+          </th>
+        </tr>
+
+        <tr>
+          <th></th>
+        <% surveyElem.options.forEach(function(optElem, index) { %>
+          <th class="opt" id="opt<%= optElem.value %>"><%= optElem.text %></th>
+        <% }) %>
+        </tr>
+      </thead>
+
+      <tbody>
+
+          <tr>
+            <td></td>
+            <% surveyElem.options.forEach(function(optElem, qindex) { %>
+              <td class="radiobox" id="rdb<%= qindex %>">
+              <input type="radio" name="<%= surveyElem.qn_num %>" value="<%= optElem.value %>">
+              </td>
+            <% }) %>
+          </tr>
+
+      </tbody>
+
+    </table>
+  <hr class>
+<% }}) %> <!-- end of for each survey function -->
+
+<button type="submit" class="btn btn-default">;)</button>
+
+</form> <!-- end of form -->
+
+</div> <!--end of container-->

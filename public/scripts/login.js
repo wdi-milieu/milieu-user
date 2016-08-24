@@ -10,7 +10,7 @@ $(function() {
 
 
     $.ajax({
-          url: 'https://evening-retreat-40915.herokuapp.com/admin/login',
+          url: 'http://localhost:9000/admin/login',
           type: 'POST',
           data: {
             email: $email.val(),
