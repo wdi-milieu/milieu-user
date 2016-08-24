@@ -2,6 +2,7 @@
 
 <div id="survey">
   <form class="" action="/surveys" method="post">
+    <div class="jumbotron">
     <% survey.forEach(function(surveyElem, index) { %>
       <div id="qn_container">
       <%= surveyElem.question %>
@@ -59,5 +60,5 @@
       <% } %>
 
     <% }) %>
-
+  </div>
 </div>
