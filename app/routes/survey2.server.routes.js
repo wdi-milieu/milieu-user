@@ -10,8 +10,11 @@ module.exports = function(app) {
     next();
   });
 
-  app.get('/survey2/take', surveyController2.new);
+  app.get('/survey2/take', surveyController2.new); //taking new survey
+  app.post('/survey2', surveyController2.create); //post new survey2
 
-  app.post('/survey2', surveyController2.create);
+  app.route('/api/wdi4survey')
+    .get(surveyController2.index);
+
 
 }; //end of module exports
