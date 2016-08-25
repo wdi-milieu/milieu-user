@@ -9,7 +9,7 @@
 
 
     <% if(surveyElem.type == "radio") { %>
-    <div id="table-container">
+    <div class="table-container">
     <table class="table">
       <thead class="anchor" >
         <tr id="qn_container">
@@ -40,21 +40,32 @@
       </tbody>
     </table>
   <hr class>
-  <a href="#surveyPg_<%= index+1 %>" class="arrowPg">
-    <svg width="70" height="40" viewBox="-2.5 -5 75 60" preserveAspectRatio="none">
-      <path  id="arrowlink" d="M0,0 l35,50 l35,-50" fill="none" stroke="black" stroke-linecap="round" stroke-width="2" />
-    </svg>
-  </a>
-  </div>
-<% }}) %> <!-- end of for each survey function -->
+
+
+
+
+  <% } %>
+
+
+  <% if(index+1 < survey.length) { %>
+    <a href="#surveyPg_<%= index + 1 %>" class="arrowPg">
+      <svg class="arrowPgSVG" width="70" height="40" viewBox="-2.5 -5 75 60" preserveAspectRatio="none">
+        <path  id="arrowlink" d="M0,0 l35,50 l35,-50" fill="none" stroke="black" stroke-linecap="round" stroke-width="2" />
+      </svg>
+    </a>
+  <% } %>
+
+</div>
+<% }) %> <!-- end of for each survey function -->
 
 <% brands.forEach(function(brandElem, index) { %>
   <input type="hidden" name="brandName" value="<%= brandElem.name %>">
 <% }) %>
 
 <input id="jwt_token" type="hidden" name="survey_jwt">
+<div class="table-container" id="<%= survey.length + 1 %>">
 <button id="submitsurvey" type="submit" class="btn btn-default">Submit Survey</button>
-
+</div>
 </form> <!-- end of form -->
 
 </div> <!--end of container-->

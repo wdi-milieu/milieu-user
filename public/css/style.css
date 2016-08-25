@@ -197,3 +197,8 @@ a {
 #table-container {
   height: 100vh;
 }
+
+#arrowPgSVG {
+  display:block;
+  margin: auto;
+}
