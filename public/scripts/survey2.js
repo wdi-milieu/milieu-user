@@ -22,19 +22,19 @@ var survey_arr2 = [
     type: "radio",
     question_type: "with image",
     question: "Who's most likely to wear this?",
-    image:"http://i1.wp.com/www.frugalbits.com/wp-content/uploads/2011/04/1-03012011anthro1_rect540.jpg",
+    image:"http://i.imgur.com/CC40aiy.jpg",
     options: [
       {
         value: 1,
-        text: "person1",
+        text: "Yu Zheng",
       },
       {
         value: 2,
-        text: "person2",
+        text: "Zhe Zhang",
       },
       {
         value: 3,
-        text: "person3",
+        text: "Jonathan",
       },
     ]
   },
