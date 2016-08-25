@@ -63,11 +63,11 @@ var survey_arr2 = [
     qn_num: "questionFour",
     type: "radio",
     question_type: "select image",
-    question: " \'random quote\' Who said this?",
+    question: " 'I lost track of my holes' , who said this?",
     options: [
       {
         value: 1,
-        image: "https://mir-s3-cdn-cf.behance.net/project_modules/disp/e98d6037810691.574d698a9b934.png",
+        image: "http://i.imgur.com/muc8cGK.jpg?1",
         text: "person 1",
       },
       {
@@ -77,7 +77,7 @@ var survey_arr2 = [
       },
       {
         value: 3,
-        image: "https://mir-s3-cdn-cf.behance.net/project_modules/disp/9a13f337810691.574d698a9b293.png",
+        image: "http://i.imgur.com/kwCfopX.jpg?1",
         text: "person 3",
       },
     ]

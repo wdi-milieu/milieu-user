@@ -61,7 +61,11 @@ a svg:hover #arrowlink{
 }
 
 /* survey styling */
-table {
+tr > th {
+  text-align: center;
+}
+
+h4 {
   text-align: center;
 }
 
@@ -75,6 +79,7 @@ label > input + img{ /* IMAGE STYLES */
 label > img {
   opacity: 0.5;
     filter: alpha(opacity=50);
+    height: 300px;
 }
 label > input:hover + img{ /* IMAGE STYLES */
   opacity: 0.7;
@@ -86,6 +91,8 @@ label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
   filter: alpha(opacity=50);
 }
 
-#questionThree {
+h4 + img {
   height: 300px;
+  display: block;
+  margin: 0 auto
 }
