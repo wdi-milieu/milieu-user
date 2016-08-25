@@ -69,7 +69,7 @@ h4 {
   text-align: center;
 }
 
-label > input{ /* HIDE RADIO */
+label > .selectImage { /* HIDE RADIO */
   visibility: hidden; /* Makes input not-clickable */
   position: absolute; /* Remove input from document flow */
 }

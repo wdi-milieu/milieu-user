@@ -34,7 +34,7 @@ var survey_arr2 = [
       },
       {
         value: 3,
-        text: "Jonathan",
+        // text: "Jonathan",
       },
     ]
   },

@@ -26,7 +26,7 @@
             <% surveyElem.options.forEach(function(optElem, qindex) { %>
               <td class="radiobox" id="rdb<%= qindex %>" align="center">
               <label>
-                <input type="radio" name="<%= surveyElem.qn_num %>" value="<%= optElem.value %>">
+                <input class="selectImage" type="radio" name="<%= surveyElem.qn_num %>" value="<%= optElem.value %>">
                 <img class="image" src="<%=optElem.image%>" id="<%=optElem.text%>"><br>
               </label>
               </td>
@@ -54,9 +54,15 @@
 
     <h4><%= surveyElem.question %></h4>
       <% surveyElem.options.forEach(function(optElem, index) { %>
-        <div class="opt" id="opt<%= optElem.value %>">
+        <!-- <div class="opt" id="opt<%= optElem.value %>">
           <%= optElem.text %>
           <input type="radio" name="<%= surveyElem.qn_num %>" value="<%= optElem.value %>">
+        </div> -->
+
+        <div class="opt" id="opt<%= optElem.value %>">
+          <label class="radio-inline">
+            <input type="radio" name="<%= surveyElem.qn_num %>" value="<%= optElem.value %>"><%= optElem.text %>
+          </label>
         </div>
       <% }) %>
   <hr class>
