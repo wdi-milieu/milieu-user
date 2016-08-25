@@ -237,7 +237,7 @@ module.exports = {
     survey.save(function(err){
       if (err) return next(err); //return next(err);
       console.log('save successful');
-      res.redirect('https://wdi-milieu.github.io/milieu-client/wdi4.html');
+      res.redirect('https://wdi-milieu.github.io/milieu-client/thankyou.html');
     });
   } // close create function
 
