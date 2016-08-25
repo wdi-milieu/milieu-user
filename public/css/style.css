@@ -80,9 +80,10 @@ label > img {
   opacity: 0.5;
     filter: alpha(opacity=50);
     height: 300px;
+  border-radius: 10px
 }
 label > input:hover + img{ /* IMAGE STYLES */
-  opacity: 0.7;
+  opacity: 1;
     filter: alpha(opacity=50);
   box-shadow: 0 4px 8px 0 rgba(252, 120, 100, 0.4), 0 6px 20px 0 rgba(252, 120, 100, 0.3);
 }
@@ -95,4 +96,8 @@ h4 + img {
   height: 400px;
   display: block;
   margin: 0 auto
+}
+
+label > input {
+  text-align: center;
 }
