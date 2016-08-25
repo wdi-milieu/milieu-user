@@ -193,3 +193,7 @@ a {
 .dc-chart g.axis path {
   fill: #AFBFC0 !important;
 }
+
+#table-container {
+  height: 100vh;
+}

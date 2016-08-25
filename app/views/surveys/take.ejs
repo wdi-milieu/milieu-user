@@ -4,16 +4,16 @@
     <h3  class="title">HELLO. <br><br> TAKE THIS BRAND SURVEY FOR A START. </h3>
   </div>
   <hr class="hr">
-
   <form class="" action="/surveys" method="post">
   <% survey.forEach(function(surveyElem, index) { %>
 
 
     <% if(surveyElem.type == "radio") { %>
+    <div id="table-container">
     <table class="table">
-      <thead class="anchor" id="surveyQn_<%= index %>">
+      <thead class="anchor" >
         <tr id="qn_container">
-          <th colspan = <%=surveyElem.options.length + 1 %>>
+          <th colspan="<%=surveyElem.options.length + 1 %>" id="surveyPg_<%= index %>">
             <h4><%= surveyElem.question %></h4>
           </th>
         </tr>
@@ -40,11 +40,12 @@
       </tbody>
     </table>
   <hr class>
-  <a href="#surveyQn_<%= index+1 %>" class="arrow_test">
+  <a href="#surveyPg_<%= index+1 %>" class="arrowPg">
     <svg width="70" height="40" viewBox="-2.5 -5 75 60" preserveAspectRatio="none">
       <path  id="arrowlink" d="M0,0 l35,50 l35,-50" fill="none" stroke="black" stroke-linecap="round" stroke-width="2" />
     </svg>
   </a>
+  </div>
 <% }}) %> <!-- end of for each survey function -->
 
 <% brands.forEach(function(brandElem, index) { %>

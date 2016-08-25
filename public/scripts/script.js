@@ -10,18 +10,12 @@ $(function() {
           'slow');
   });
 
-  $(".arrow_test").click(function(e) {
+  $(".arrowPg").click(function(e) {
     e.preventDefault();
     var target = $(this).attr('href');
     $('html,body').animate({
         scrollTop: $(target).offset().top},
           'slow');
-
-    // $('html,body').animate({
-    //     scrollTop: $("#navigate").offset().top},
-    //       'slow');
-  });
-
 
   $("#jwt_token").val(localStorage.getItem('jwt_token'));
 
