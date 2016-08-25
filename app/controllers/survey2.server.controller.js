@@ -189,11 +189,6 @@ module.exports = {
 
   index: function(req, res){
     //this is for api export & json things
-    //
-    // mergeQuestionResult.push(_.extend({}, question1, question2, question3, question4, question5, question6));
-
-    console.log(question1[0].opt1 + question1[0].opt2);
-    console.log(question1[0].opt1 / (question1[0].opt1 + question1[0].opt2) );
 
     var classSurveyResult = {};
 
@@ -219,7 +214,7 @@ module.exports = {
         classSurveyResult['q6opt1'] = parseInt((question6[0].opt1 / (question6[0].opt1 + question6[0].opt2 + question6[0].opt3 + question6[0].opt4) )*100);
         classSurveyResult['q6opt2'] = parseInt((question6[0].opt2 / (question6[0].opt1 + question6[0].opt2 + question6[0].opt3 + question6[0].opt4) )*100);
         classSurveyResult['q6opt3'] = parseInt((question6[0].opt3 / (question6[0].opt1 + question6[0].opt2 + question6[0].opt3 + question6[0].opt4) )*100);
-        classSurveyResult['q6opt3'] = parseInt((question6[0].opt4 / (question6[0].opt1 + question6[0].opt2 + question6[0].opt3 + question6[0].opt4) )*100);
+        classSurveyResult['q6opt4'] = parseInt((question6[0].opt4 / (question6[0].opt1 + question6[0].opt2 + question6[0].opt3 + question6[0].opt4) )*100);
 
 
     res.json(classSurveyResult);
