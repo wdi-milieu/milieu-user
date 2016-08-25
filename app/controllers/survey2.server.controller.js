@@ -13,20 +13,20 @@ Survey.aggregate([
     total: { $sum: 1}
     }
   },
-  { $group: {
-    _id: "$questionOne",
-    opt1: { $sum: { $cond: [
-      { $eq: ["$total", 1 ]},
-      "$total",
-      0
-    ]}},
-    opt2: { $sum: { $cond: [
-      { $eq: ["$total", 2 ]},
-      "$total",
-      0
-    ]}}
-  }
-  },
+  // { $group: {
+  //   _id: "$questionOne",
+  //   opt1: { $sum: { $cond: [
+  //     { $eq: ["$total", 1 ]},
+  //     "$total",
+  //     0
+  //   ]}},
+  //   opt2: { $sum: { $cond: [
+  //     { $eq: ["$total", 2 ]},
+  //     "$total",
+  //     0
+  //   ]}}
+  // }
+  // },
   { $sort: { '_id': 1}}
 ],function(err,result1){
   question1 = result1;
