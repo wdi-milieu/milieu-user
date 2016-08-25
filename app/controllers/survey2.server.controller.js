@@ -13,20 +13,20 @@ Survey.aggregate([
     total: { $sum: 1}
     }
   },
-  // { $group: {
-  //   _id: "$questionOne",
-  //   opt1: { $sum: { $cond: [
-  //     { $eq: ["$total", 1 ]},
-  //     "$total",
-  //     0
-  //   ]}},
-  //   opt2: { $sum: { $cond: [
-  //     { $eq: ["$total", 2 ]},
-  //     "$total",
-  //     0
-  //   ]}}
-  // }
-  // },
+  { $group: {
+    _id: "$questionOne",
+    opt1: { $sum: { $cond: [
+      { $eq: ["$total", 1 ]},
+      "$total",
+      0
+    ]}},
+    opt2: { $sum: { $cond: [
+      { $eq: ["$total", 2 ]},
+      "$total",
+      0
+    ]}}
+  }
+  },
   { $sort: { '_id': 1}}
 ],function(err,result){
   question1 = result;
@@ -39,25 +39,25 @@ Survey.aggregate([
     total: { $sum: 1}
     }
   },
-  // { $group: {
-  //   _id: "$questionTwo",
-  //   opt1: { $sum: { $cond: [
-  //     { $eq: ["$total", 1 ]},
-  //     "$total",
-  //     0
-  //   ]}},
-  //   opt2: { $sum: { $cond: [
-  //     { $eq: ["$total", 2 ]},
-  //     "$total",
-  //     0
-  //   ]}},
-  //   opt3: { $sum: { $cond: [
-  //     { $eq: ["$total", 3 ]},
-  //     "$total",
-  //     0
-  //   ]}}
-  // }
-  // },
+  { $group: {
+    _id: "$questionTwo",
+    opt1: { $sum: { $cond: [
+      { $eq: ["$total", 1 ]},
+      "$total",
+      0
+    ]}},
+    opt2: { $sum: { $cond: [
+      { $eq: ["$total", 2 ]},
+      "$total",
+      0
+    ]}},
+    opt3: { $sum: { $cond: [
+      { $eq: ["$total", 3 ]},
+      "$total",
+      0
+    ]}}
+  }
+  },
   { $sort: { '_id': 1}}
 ],function(err,result){
   question2 = result;
@@ -191,10 +191,7 @@ module.exports = {
     //this is for api export & json things
     //
     // mergeQuestionResult.push(_.extend({}, question1, question2, question3, question4, question5, question6));
-    // Survey.find({}, function(err, result){
-    //   if (err) res.status(400).send(err);
-    //   res.json(result);
-    // });
+
     console.log(question1[0].opt1 + question1[0].opt2);
     console.log(question1[0].opt1 / (question1[0].opt1 + question1[0].opt2) );
 
