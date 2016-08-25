@@ -13,20 +13,20 @@ Survey.aggregate([
     total: { $sum: 1}
     }
   },
-  // { $group: {
-  //   _id: "$questionOne",
-  //   opt1: { $sum: { $cond: [
-  //     { $eq: ["$total", 1 ]},
-  //     "$total",
-  //     0
-  //   ]}},
-  //   opt2: { $sum: { $cond: [
-  //     { $eq: ["$total", 2 ]},
-  //     "$total",
-  //     0
-  //   ]}}
-  // }
-  // },
+  { $group: {
+    _id: "questionOne",
+    opt1: { $sum: { $cond: [
+      { $eq: ["$_id", 1 ]},
+      "$total",
+      0
+    ]}},
+    opt2: { $sum: { $cond: [
+      { $eq: ["$_id", 2 ]},
+      "$total",
+      0
+    ]}}
+  }
+  },
   { $sort: { '_id': 1}}
 ],function(err,result1){
   question1 = result1;
@@ -39,25 +39,25 @@ Survey.aggregate([
     total: { $sum: 1}
     }
   },
-  // { $group: {
-  //   _id: "$questionTwo",
-  //   opt1: { $sum: { $cond: [
-  //     { $eq: ["$total", 1 ]},
-  //     "$total",
-  //     0
-  //   ]}},
-  //   opt2: { $sum: { $cond: [
-  //     { $eq: ["$total", 2 ]},
-  //     "$total",
-  //     0
-  //   ]}},
-  //   opt3: { $sum: { $cond: [
-  //     { $eq: ["$total", 3 ]},
-  //     "$total",
-  //     0
-  //   ]}}
-  // }
-  // },
+  { $group: {
+    _id: "questionTwo",
+    opt1: { $sum: { $cond: [
+      { $eq: ["$_id", 1 ]},
+      "$total",
+      0
+    ]}},
+    opt2: { $sum: { $cond: [
+      { $eq: ["$_id", 2 ]},
+      "$total",
+      0
+    ]}},
+    opt3: { $sum: { $cond: [
+      { $eq: ["$_id", 3 ]},
+      "$total",
+      0
+    ]}}
+  }
+  },
   { $sort: { '_id': 1}}
 ],function(err,result2){
   question2 = result2;
@@ -70,19 +70,19 @@ Survey.aggregate([
     }
   },
   { $group: {
-    _id: "$questionThree",
+    _id: "questionThree",
     opt1: { $sum: { $cond: [
-      { $eq: ["$total", 1 ]},
+      { $eq: ["$_id", 1 ]},
       "$total",
       0
     ]}},
     opt2: { $sum: { $cond: [
-      { $eq: ["$total", 2 ]},
+      { $eq: ["$_id", 2 ]},
       "$total",
       0
     ]}},
     opt3: { $sum: { $cond: [
-      { $eq: ["$total", 3 ]},
+      { $eq: ["$_id", 3 ]},
       "$total",
       0
     ]}}
@@ -100,14 +100,14 @@ Survey.aggregate([
     }
   },
   { $group: {
-    _id: "$questionFour",
+    _id: "questionFour",
     opt1: { $sum: { $cond: [
-      { $eq: ["$total", 1 ]},
+      { $eq: ["$_id", 1 ]},
       "$total",
       0
     ]}},
     opt2: { $sum: { $cond: [
-      { $eq: ["$total", 2 ]},
+      { $eq: ["$_id", 2 ]},
       "$total",
       0
     ]}},
@@ -131,14 +131,14 @@ Survey.aggregate([
     }
   },
   { $group: {
-    _id: "$questionFive",
+    _id: "questionFive",
     opt1: { $sum: { $cond: [
-      { $eq: ["$total", 1 ]},
+      { $eq: ["$_id", 1 ]},
       "$total",
       0
     ]}},
     opt2: { $sum: { $cond: [
-      { $eq: ["$total", 2 ]},
+      { $eq: ["$_id", 2 ]},
       "$total",
       0
     ]}}
@@ -157,24 +157,24 @@ Survey.aggregate([
     }
   },
   { $group: {
-    _id: "$questionSix",
+    _id: "questionSix",
     opt1: { $sum: { $cond: [
-      { $eq: ["$total", 1 ]},
+      { $eq: ["$_id", 1 ]},
       "$total",
       0
     ]}},
     opt2: { $sum: { $cond: [
-      { $eq: ["$total", 2 ]},
+      { $eq: ["$_id", 2 ]},
       "$total",
       0
     ]}},
     opt3: { $sum: { $cond: [
-      { $eq: ["$total", 3 ]},
+      { $eq: ["$_id", 3 ]},
       "$total",
       0
     ]}},
     opt4: { $sum: { $cond: [
-      { $eq: ["$total", 4 ]},
+      { $eq: ["$_id", 4 ]},
       "$total",
       0
     ]}}
@@ -190,48 +190,43 @@ module.exports = {
   index: function(req, res){
     //this is for api export & json things
 
-    // var q1 = question1[0];
-    // var q2 = question2[0];
-    // var q3 = question3[0];
-    // var q4 = question4[0];
-    // var q5 = question5[0];
-    // var q6 = question6[0];
-    //
-    // var classSurveyResult = {};
-    //
-    //     classSurveyResult['q1opt1'] = parseInt(q1.opt1);
-    //     classSurveyResult['q1opt2'] = parseInt(q1.opt2);
-    //
-    //     classSurveyResult['q2opt1'] = parseInt(q2.opt1);
-    //     classSurveyResult['q2opt2'] = parseInt(q2.opt2);
-    //     classSurveyResult['q2opt3'] = parseInt(q2.opt3);
-    //
-    //     classSurveyResult['q3opt1'] = parseInt(q3.opt1);
-    //     classSurveyResult['q3opt2'] = parseInt(q3.opt2);
-    //     classSurveyResult['q3opt3'] = parseInt(q3.opt3);
-    //
-    //     classSurveyResult['q4opt1'] = parseInt(q4.opt1);
-    //     classSurveyResult['q4opt2'] = parseInt(q4.opt2);
-    //     classSurveyResult['q4opt3'] = parseInt(q4.opt3);
-    //
-    //     classSurveyResult['q5opt1'] = parseInt(q5.opt1);
-    //     classSurveyResult['q5opt2'] = parseInt(q5.opt2);
-    //
-    //
-    //     classSurveyResult['q6opt1'] = parseInt(q6.opt1);
-    //     classSurveyResult['q6opt2'] = parseInt(q6.opt2);
-    //     classSurveyResult['q6opt3'] = parseInt(q6.opt3);
-    //     classSurveyResult['q6opt4'] = parseInt(q6.opt4);
+    var classSurveyResult = {};
+
+       classSurveyResult['q1opt1'] = parseInt((question1[0].opt1 / (question1[0].opt1 + question1[0].opt2) )*100);
+       classSurveyResult['q1opt2'] = parseInt((question1[0].opt2 / (question1[0].opt1 + question1[0].opt2) )*100);
+
+       classSurveyResult['q2opt1'] = parseInt((question2[0].opt1 / (question2[0].opt1 + question2[0].opt2 + question2[0].opt3) )*100);
+       classSurveyResult['q2opt2'] = parseInt((question2[0].opt2 / (question2[0].opt1 + question2[0].opt2 + question2[0].opt3) )*100);
+       classSurveyResult['q2opt3'] = parseInt((question2[0].opt3 / (question2[0].opt1 + question2[0].opt2 + question2[0].opt3) )*100);
+
+       classSurveyResult['q3opt1'] = parseInt((question3[0].opt1 / (question3[0].opt1 + question3[0].opt2 + question3[0].opt3) )*100);
+       classSurveyResult['q3opt2'] = parseInt((question3[0].opt2 / (question3[0].opt1 + question3[0].opt2 + question3[0].opt3) )*100);
+       classSurveyResult['q3opt3'] = parseInt((question3[0].opt3 / (question3[0].opt1 + question3[0].opt2 + question3[0].opt3) )*100);
+
+       classSurveyResult['q4opt1'] = parseInt((question4[0].opt1 / (question4[0].opt1 + question4[0].opt2 + question4[0].opt3) )*100);
+       classSurveyResult['q4opt2'] = parseInt((question4[0].opt2 / (question4[0].opt1 + question4[0].opt2 + question4[0].opt3) )*100);
+       classSurveyResult['q4opt3'] = parseInt((question4[0].opt3 / (question4[0].opt1 + question4[0].opt2 + question4[0].opt3) )*100);
+
+       classSurveyResult['q5opt1'] = parseInt((question5[0].opt1 / (question5[0].opt1 + question5[0].opt2) )*100);
+       classSurveyResult['q5opt2'] = parseInt((question5[0].opt2 / (question5[0].opt1 + question5[0].opt2) )*100);
 
 
-    res.json({
-      question1,
-      question2,
-      question3,
-      question4,
-      question5,
-      question6
-    });
+       classSurveyResult['q6opt1'] = parseInt((question6[0].opt1 / (question6[0].opt1 + question6[0].opt2 + question6[0].opt3 + question6[0].opt4) )*100);
+       classSurveyResult['q6opt2'] = parseInt((question6[0].opt2 / (question6[0].opt1 + question6[0].opt2 + question6[0].opt3 + question6[0].opt4) )*100);
+       classSurveyResult['q6opt3'] = parseInt((question6[0].opt3 / (question6[0].opt1 + question6[0].opt2 + question6[0].opt3 + question6[0].opt4) )*100);
+       classSurveyResult['q6opt3'] = parseInt((question6[0].opt4 / (question6[0].opt1 + question6[0].opt2 + question6[0].opt3 + question6[0].opt4) )*100);
+
+
+   res.json(classSurveyResult);
+
+    // res.json({
+    //   question1,
+    //   question2,
+    //   question3,
+    //   question4,
+    //   question5,
+    //   question6
+    // });
   }, //close index function
 
   new: function(req, res){
