@@ -21,8 +21,8 @@ var survey_arr2 = [
     qn_num: "questionTwo",
     type: "radio",
     question_type: "with image",
-    question: "Who's most likely to wear this?",
-    image:"http://i.imgur.com/CC40aiy.jpg",
+    question: "Who's bottle is this?",
+    image:"http://i.imgur.com/tHo8n0B.jpg",
     options: [
       {
         value: 1,
@@ -63,7 +63,7 @@ var survey_arr2 = [
     qn_num: "questionFour",
     type: "radio",
     question_type: "select image",
-    question: " 'I lost track of my holes' , who said this?",
+    question: " 'The time I made a million dollars was when I was dreaming last night' , who said this?",
     options: [
       {
         value: 1,
@@ -72,7 +72,7 @@ var survey_arr2 = [
       },
       {
         value: 2,
-        image: "https://mir-s3-cdn-cf.behance.net/project_modules/disp/9bf50937810691.574d698a99cfb.png",
+        image: "http://i.imgur.com/AMofIcc.jpg",
         text: "person 2",
       },
       {
@@ -84,7 +84,7 @@ var survey_arr2 = [
   },
   {
     qn_num: "questionFive",
-    type: "radio",
+    type: "button",
     question_type: "select text",
     question: "Annexe 3 or Original Classroom?",
     options: [
