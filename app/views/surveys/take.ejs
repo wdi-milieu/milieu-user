@@ -1,15 +1,15 @@
 <div class="container-fluid main">
 
   <div>
-    <h3  class="title">HELLO. <br><br> TAKE THIS BRAND SURVEY FOR A START. </h3>
+    <h3  class="title">HELLO. TAKE THIS BRAND SURVEY FOR A START. </h3>
   </div>
   <hr class="hr">
   <form class="" action="/surveys" method="post">
   <% survey.forEach(function(surveyElem, index) { %>
+    <div class="table-container">
 
 
     <% if(surveyElem.type == "radio") { %>
-    <div class="table-container">
     <table class="table">
       <thead class="anchor" >
         <tr id="qn_container">
@@ -45,7 +45,6 @@
 
 
   <% } %>
-
 
   <% if(index+1 < survey.length) { %>
     <a href="#surveyPg_<%= index + 1 %>" class="arrowPg">

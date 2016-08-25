@@ -91,6 +91,7 @@ background-color: #C7DFC5;
 #submitsurvey {
   display: block;
   margin: 0 auto;
+  margin-top: -20%;
 }
 
 
@@ -194,8 +195,12 @@ a {
   fill: #AFBFC0 !important;
 }
 
-#table-container {
+.table-container {
   height: 100vh;
+}
+
+.table {
+  height: 68vh;
 }
 
 #arrowPgSVG {
