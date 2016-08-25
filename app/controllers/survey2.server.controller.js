@@ -191,39 +191,42 @@ module.exports = {
     //this is for api export & json things
     //
     // mergeQuestionResult.push(_.extend({}, question1, question2, question3, question4, question5, question6));
-
-    console.log(question1[0].opt1 + question1[0].opt2);
-    console.log(question1[0].opt1 / (question1[0].opt1 + question1[0].opt2) );
-
-    var classSurveyResult = {};
-
-        classSurveyResult['q1opt1'] = parseInt((question1[0].opt1 / (question1[0].opt1 + question1[0].opt2) )*100);
-        classSurveyResult['q1opt2'] = parseInt((question1[0].opt2 / (question1[0].opt1 + question1[0].opt2) )*100);
-
-        classSurveyResult['q2opt1'] = parseInt((question2[0].opt1 / (question2[0].opt1 + question2[0].opt2 + question2[0].opt3) )*100);
-        classSurveyResult['q2opt2'] = parseInt((question2[0].opt2 / (question2[0].opt1 + question2[0].opt2 + question2[0].opt3) )*100);
-        classSurveyResult['q2opt3'] = parseInt((question2[0].opt3 / (question2[0].opt1 + question2[0].opt2 + question2[0].opt3) )*100);
-
-        classSurveyResult['q3opt1'] = parseInt((question3[0].opt1 / (question3[0].opt1 + question3[0].opt2 + question3[0].opt3) )*100);
-        classSurveyResult['q3opt2'] = parseInt((question3[0].opt2 / (question3[0].opt1 + question3[0].opt2 + question3[0].opt3) )*100);
-        classSurveyResult['q3opt3'] = parseInt((question3[0].opt3 / (question3[0].opt1 + question3[0].opt2 + question3[0].opt3) )*100);
-
-        classSurveyResult['q4opt1'] = parseInt((question4[0].opt1 / (question4[0].opt1 + question4[0].opt2 + question4[0].opt3) )*100);
-        classSurveyResult['q4opt2'] = parseInt((question4[0].opt2 / (question4[0].opt1 + question4[0].opt2 + question4[0].opt3) )*100);
-        classSurveyResult['q4opt3'] = parseInt((question4[0].opt3 / (question4[0].opt1 + question4[0].opt2 + question4[0].opt3) )*100);
-
-        classSurveyResult['q5opt1'] = parseInt((question5[0].opt1 / (question5[0].opt1 + question5[0].opt2) )*100);
-        classSurveyResult['q5opt2'] = parseInt((question5[0].opt2 / (question5[0].opt1 + question5[0].opt2) )*100);
-
-
-        classSurveyResult['q6opt1'] = parseInt((question6[0].opt1 / (question6[0].opt1 + question6[0].opt2 + question6[0].opt3 + question6[0].opt4) )*100);
-        classSurveyResult['q6opt2'] = parseInt((question6[0].opt2 / (question6[0].opt1 + question6[0].opt2 + question6[0].opt3 + question6[0].opt4) )*100);
-        classSurveyResult['q6opt3'] = parseInt((question6[0].opt3 / (question6[0].opt1 + question6[0].opt2 + question6[0].opt3 + question6[0].opt4) )*100);
-        classSurveyResult['q6opt3'] = parseInt((question6[0].opt4 / (question6[0].opt1 + question6[0].opt2 + question6[0].opt3 + question6[0].opt4) )*100);
-
-
-    res.json(classSurveyResult);
-  }, //close index function
+    Survey.find({}, function(err, result){
+      if (err) res.status(400).send(err);
+      res.json(result);
+    });
+  //   console.log(question1[0].opt1 + question1[0].opt2);
+  //   console.log(question1[0].opt1 / (question1[0].opt1 + question1[0].opt2) );
+  //
+  //   var classSurveyResult = {};
+  //
+  //       classSurveyResult['q1opt1'] = parseInt((question1[0].opt1 / (question1[0].opt1 + question1[0].opt2) )*100);
+  //       classSurveyResult['q1opt2'] = parseInt((question1[0].opt2 / (question1[0].opt1 + question1[0].opt2) )*100);
+  //
+  //       classSurveyResult['q2opt1'] = parseInt((question2[0].opt1 / (question2[0].opt1 + question2[0].opt2 + question2[0].opt3) )*100);
+  //       classSurveyResult['q2opt2'] = parseInt((question2[0].opt2 / (question2[0].opt1 + question2[0].opt2 + question2[0].opt3) )*100);
+  //       classSurveyResult['q2opt3'] = parseInt((question2[0].opt3 / (question2[0].opt1 + question2[0].opt2 + question2[0].opt3) )*100);
+  //
+  //       classSurveyResult['q3opt1'] = parseInt((question3[0].opt1 / (question3[0].opt1 + question3[0].opt2 + question3[0].opt3) )*100);
+  //       classSurveyResult['q3opt2'] = parseInt((question3[0].opt2 / (question3[0].opt1 + question3[0].opt2 + question3[0].opt3) )*100);
+  //       classSurveyResult['q3opt3'] = parseInt((question3[0].opt3 / (question3[0].opt1 + question3[0].opt2 + question3[0].opt3) )*100);
+  //
+  //       classSurveyResult['q4opt1'] = parseInt((question4[0].opt1 / (question4[0].opt1 + question4[0].opt2 + question4[0].opt3) )*100);
+  //       classSurveyResult['q4opt2'] = parseInt((question4[0].opt2 / (question4[0].opt1 + question4[0].opt2 + question4[0].opt3) )*100);
+  //       classSurveyResult['q4opt3'] = parseInt((question4[0].opt3 / (question4[0].opt1 + question4[0].opt2 + question4[0].opt3) )*100);
+  //
+  //       classSurveyResult['q5opt1'] = parseInt((question5[0].opt1 / (question5[0].opt1 + question5[0].opt2) )*100);
+  //       classSurveyResult['q5opt2'] = parseInt((question5[0].opt2 / (question5[0].opt1 + question5[0].opt2) )*100);
+  //
+  //
+  //       classSurveyResult['q6opt1'] = parseInt((question6[0].opt1 / (question6[0].opt1 + question6[0].opt2 + question6[0].opt3 + question6[0].opt4) )*100);
+  //       classSurveyResult['q6opt2'] = parseInt((question6[0].opt2 / (question6[0].opt1 + question6[0].opt2 + question6[0].opt3 + question6[0].opt4) )*100);
+  //       classSurveyResult['q6opt3'] = parseInt((question6[0].opt3 / (question6[0].opt1 + question6[0].opt2 + question6[0].opt3 + question6[0].opt4) )*100);
+  //       classSurveyResult['q6opt3'] = parseInt((question6[0].opt4 / (question6[0].opt1 + question6[0].opt2 + question6[0].opt3 + question6[0].opt4) )*100);
+  //
+  //
+  //   res.json(classSurveyResult);
+  // }, //close index function
 
   new: function(req, res){
     res.render('surveys/take2', {
