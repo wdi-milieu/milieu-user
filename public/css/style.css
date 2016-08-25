@@ -222,6 +222,8 @@ tr > th {
 
 h4 {
   text-align: center;
+  font-weight: bolder !important;
+  color: #c0392b !important;
 }
 
 label > .selectImage { /* HIDE RADIO */
@@ -267,4 +269,16 @@ h4 + img {
 
 label > input {
   text-align: center;
+}
+
+.classSurveyTable {
+  border: none;
+}
+
+.spacing {
+  margin: 10% 0;
+}
+
+.radio-inline {
+  font-size: 1.5em;
 }
