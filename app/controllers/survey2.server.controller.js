@@ -192,29 +192,29 @@ module.exports = {
 
     var classSurveyResult = {};
 
-        classSurveyResult['q1opt1'] = parseInt((question1[0].opt1 / (question1[0].opt1 + question1[0].opt2) )*100);
-        classSurveyResult['q1opt2'] = parseInt((question1[0].opt2 / (question1[0].opt1 + question1[0].opt2) )*100);
+        classSurveyResult['q1opt1'] = parseInt((question1[0].opt1);
+        classSurveyResult['q1opt2'] = parseInt((question1[0].opt2);
 
-        classSurveyResult['q2opt1'] = parseInt((question2[0].opt1 / (question2[0].opt1 + question2[0].opt2 + question2[0].opt3) )*100);
-        classSurveyResult['q2opt2'] = parseInt((question2[0].opt2 / (question2[0].opt1 + question2[0].opt2 + question2[0].opt3) )*100);
-        classSurveyResult['q2opt3'] = parseInt((question2[0].opt3 / (question2[0].opt1 + question2[0].opt2 + question2[0].opt3) )*100);
+        classSurveyResult['q2opt1'] = parseInt((question2[0].opt1);
+        classSurveyResult['q2opt2'] = parseInt((question2[0].opt2);
+        classSurveyResult['q2opt3'] = parseInt((question2[0].opt3);
 
-        classSurveyResult['q3opt1'] = parseInt((question3[0].opt1 / (question3[0].opt1 + question3[0].opt2 + question3[0].opt3) )*100);
-        classSurveyResult['q3opt2'] = parseInt((question3[0].opt2 / (question3[0].opt1 + question3[0].opt2 + question3[0].opt3) )*100);
-        classSurveyResult['q3opt3'] = parseInt((question3[0].opt3 / (question3[0].opt1 + question3[0].opt2 + question3[0].opt3) )*100);
+        classSurveyResult['q3opt1'] = parseInt((question3[0].opt1);
+        classSurveyResult['q3opt2'] = parseInt((question3[0].opt2);
+        classSurveyResult['q3opt3'] = parseInt((question3[0].opt3);
 
-        classSurveyResult['q4opt1'] = parseInt((question4[0].opt1 / (question4[0].opt1 + question4[0].opt2 + question4[0].opt3) )*100);
-        classSurveyResult['q4opt2'] = parseInt((question4[0].opt2 / (question4[0].opt1 + question4[0].opt2 + question4[0].opt3) )*100);
-        classSurveyResult['q4opt3'] = parseInt((question4[0].opt3 / (question4[0].opt1 + question4[0].opt2 + question4[0].opt3) )*100);
+        classSurveyResult['q4opt1'] = parseInt((question4[0].opt1);
+        classSurveyResult['q4opt2'] = parseInt((question4[0].opt2);
+        classSurveyResult['q4opt3'] = parseInt((question4[0].opt3);
 
-        classSurveyResult['q5opt1'] = parseInt((question5[0].opt1 / (question5[0].opt1 + question5[0].opt2) )*100);
-        classSurveyResult['q5opt2'] = parseInt((question5[0].opt2 / (question5[0].opt1 + question5[0].opt2) )*100);
+        classSurveyResult['q5opt1'] = parseInt((question5[0].opt1);
+        classSurveyResult['q5opt2'] = parseInt((question5[0].opt2);
 
 
-        classSurveyResult['q6opt1'] = parseInt((question6[0].opt1 / (question6[0].opt1 + question6[0].opt2 + question6[0].opt3 + question6[0].opt4) )*100);
-        classSurveyResult['q6opt2'] = parseInt((question6[0].opt2 / (question6[0].opt1 + question6[0].opt2 + question6[0].opt3 + question6[0].opt4) )*100);
-        classSurveyResult['q6opt3'] = parseInt((question6[0].opt3 / (question6[0].opt1 + question6[0].opt2 + question6[0].opt3 + question6[0].opt4) )*100);
-        classSurveyResult['q6opt4'] = parseInt((question6[0].opt4 / (question6[0].opt1 + question6[0].opt2 + question6[0].opt3 + question6[0].opt4) )*100);
+        classSurveyResult['q6opt1'] = parseInt((question6[0].opt1);
+        classSurveyResult['q6opt2'] = parseInt((question6[0].opt2);
+        classSurveyResult['q6opt3'] = parseInt((question6[0].opt3);
+        classSurveyResult['q6opt4'] = parseInt((question6[0].opt4);
 
 
     res.json(classSurveyResult);
