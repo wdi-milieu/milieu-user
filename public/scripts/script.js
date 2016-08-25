@@ -3,12 +3,19 @@ $(function() {
   $("#brandname").fadeIn(4000);
 
 
-  $("#arrow").click(function() {
+  $("#arrow").click(function(e) {
+    e.preventDefault();
     $('html,body').animate({
         scrollTop: $("#navigate").offset().top},
           'slow');
   });
 
+  $(".arrowPg").click(function(e) {
+    e.preventDefault();
+    var target = $(this).attr('href');
+    $('html,body').animate({
+        scrollTop: $(target).offset().top},
+          'slow');
 
   $("#jwt_token").val(localStorage.getItem('jwt_token'));
 
@@ -72,4 +79,5 @@ $(function() {
 //     window.location = '/logout/' + localStorage.getItem('jwt_token');
 //
 //   });
+});
 });

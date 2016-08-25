@@ -109,6 +109,7 @@ background-color: #C7DFC5;
 #submitsurvey {
   display: block;
   margin: 0 auto;
+  margin-top: -20%;
 }
 
 
@@ -234,4 +235,16 @@ label > input:hover + img{ /* IMAGE STYLES */
 label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
   opacity: 1;
   filter: alpha(opacity=50);
+
+.table-container {
+  height: 100vh;
+}
+
+.table {
+  height: 68vh;
+}
+
+#arrowPgSVG {
+  display:block;
+  margin: auto;
 }

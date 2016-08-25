@@ -1,22 +1,22 @@
 <div class="container-fluid main">
 
   <div>
-    <h3  class="title">HELLO. <br><br> TAKE THIS BRAND SURVEY FOR A START. </h3>
+    <h3  class="title">HELLO. TAKE THIS BRAND SURVEY FOR A START. </h3>
   </div>
   <hr class="hr">
   <form class="" action="/surveys" method="post">
   <% survey.forEach(function(surveyElem, index) { %>
+    <div class="table-container">
+
 
     <% if(surveyElem.type == "radio") { %>
-
     <table class="table">
-      <thead>
+      <thead class="anchor" >
         <tr id="qn_container">
-          <th colspan = <%=surveyElem.options.length + 1 %>>
+          <th colspan="<%=surveyElem.options.length + 1 %>" id="surveyPg_<%= index %>">
             <h4><%= surveyElem.question %></h4>
           </th>
         </tr>
-
         <tr>
           <th></th>
         <% surveyElem.options.forEach(function(optElem, index) { %>
@@ -24,36 +24,47 @@
         <% }) %>
         </tr>
       </thead>
-
       <tbody>
-
         <% brands.forEach(function(brandElem, index) { %>
           <tr>
             <td class="brandcell" id="<%= brandElem.name %>" value="<%= brandElem.name %>" name="brandName">
               <%= brandElem.name %>
             </td>
-
             <% surveyElem.options.forEach(function(optElem, qindex) { %>
               <td class="radiobox" id="rdb<%= qindex %>">
               <input type="radio" name="<%= surveyElem.name %>[<%= index %>]" value="<%= optElem.value %>">
               </td>
             <% }) %>
-
           </tr>
         <% }) %>
-
       </tbody>
     </table>
   <hr class>
-<% }}) %> <!-- end of for each survey function -->
+
+
+
+
+  <% } %>
+
+  <% if(index+1 < survey.length) { %>
+    <a href="#surveyPg_<%= index + 1 %>" class="arrowPg">
+      <svg class="arrowPgSVG" width="70" height="40" viewBox="-2.5 -5 75 60" preserveAspectRatio="none">
+        <path  id="arrowlink" d="M0,0 l35,50 l35,-50" fill="none" stroke="black" stroke-linecap="round" stroke-width="2" />
+      </svg>
+    </a>
+  <% } %>
+
+</div>
+<% }) %> <!-- end of for each survey function -->
 
 <% brands.forEach(function(brandElem, index) { %>
   <input type="hidden" name="brandName" value="<%= brandElem.name %>">
 <% }) %>
 
 <input id="jwt_token" type="hidden" name="survey_jwt">
+<div class="table-container" id="<%= survey.length + 1 %>">
 <button id="submitsurvey" type="submit" class="btn btn-default">Submit Survey</button>
-
+</div>
 </form> <!-- end of form -->
 
 </div> <!--end of container-->

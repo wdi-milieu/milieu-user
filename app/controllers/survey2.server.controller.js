@@ -192,6 +192,10 @@ module.exports = {
 
     var classSurveyResult = {};
 
+    // Survey.aggregateResults(function() {
+    //
+    // });
+
        classSurveyResult['q1opt1'] = parseInt((question1[0].opt1 / (question1[0].opt1 + question1[0].opt2) )*100);
        classSurveyResult['q1opt2'] = parseInt((question1[0].opt2 / (question1[0].opt1 + question1[0].opt2) )*100);
 
@@ -219,14 +223,6 @@ module.exports = {
 
    res.json(classSurveyResult);
 
-    // res.json({
-    //   question1,
-    //   question2,
-    //   question3,
-    //   question4,
-    //   question5,
-    //   question6
-    // });
   }, //close index function
 
   new: function(req, res){
