@@ -1,5 +1,5 @@
 $(function() {
-
+  console.log("testing");
   $("#brandname").fadeIn(4000);
 
 
@@ -16,6 +16,7 @@ $(function() {
     $('html,body').animate({
         scrollTop: $(target).offset().top},
           'slow');
+  });
 
   $("#jwt_token").val(localStorage.getItem('jwt_token'));
 
@@ -63,6 +64,8 @@ $(function() {
 
     render_plots();
 
+  }).fail(function(){
+    console.log("test fail");
   });
 //
 //   $("#logout").click(function(e){
@@ -79,5 +82,5 @@ $(function() {
 //     window.location = '/logout/' + localStorage.getItem('jwt_token');
 //
 //   });
-});
+
 });
