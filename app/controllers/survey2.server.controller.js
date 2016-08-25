@@ -13,20 +13,20 @@ Survey.aggregate([
     total: { $sum: 1}
     }
   },
-  { $group: {
-    _id: "$questionOne",
-    opt1: { $sum: { $cond: [
-      { $eq: ["$total", 1 ]},
-      "$total",
-      0
-    ]}},
-    opt2: { $sum: { $cond: [
-      { $eq: ["$total", 2 ]},
-      "$total",
-      0
-    ]}}
-  }
-  },
+  // { $group: {
+  //   _id: "$questionOne",
+  //   opt1: { $sum: { $cond: [
+  //     { $eq: ["$total", 1 ]},
+  //     "$total",
+  //     0
+  //   ]}},
+  //   opt2: { $sum: { $cond: [
+  //     { $eq: ["$total", 2 ]},
+  //     "$total",
+  //     0
+  //   ]}}
+  // }
+  // },
   { $sort: { '_id': 1}}
 ],function(err,result){
   question1 = result;
@@ -39,25 +39,25 @@ Survey.aggregate([
     total: { $sum: 1}
     }
   },
-  { $group: {
-    _id: "$questionTwo",
-    opt1: { $sum: { $cond: [
-      { $eq: ["$total", 1 ]},
-      "$total",
-      0
-    ]}},
-    opt2: { $sum: { $cond: [
-      { $eq: ["$total", 2 ]},
-      "$total",
-      0
-    ]}},
-    opt3: { $sum: { $cond: [
-      { $eq: ["$total", 3 ]},
-      "$total",
-      0
-    ]}}
-  }
-  },
+  // { $group: {
+  //   _id: "$questionTwo",
+  //   opt1: { $sum: { $cond: [
+  //     { $eq: ["$total", 1 ]},
+  //     "$total",
+  //     0
+  //   ]}},
+  //   opt2: { $sum: { $cond: [
+  //     { $eq: ["$total", 2 ]},
+  //     "$total",
+  //     0
+  //   ]}},
+  //   opt3: { $sum: { $cond: [
+  //     { $eq: ["$total", 3 ]},
+  //     "$total",
+  //     0
+  //   ]}}
+  // }
+  // },
   { $sort: { '_id': 1}}
 ],function(err,result){
   question2 = result;
