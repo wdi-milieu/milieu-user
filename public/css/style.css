@@ -52,7 +52,7 @@ h3 {
 
 #mystsurvey {
   display: block;
-  padding: 45px;
+  padding: 32px;
 }
 
 #surveyname {
@@ -162,8 +162,8 @@ select {
 }
 
 #people {
-  width: 20%;
-  height: 20%;
+  width: 23%;
+  height: 23%;
   margin: 0 auto;
   margin-top: 5%;
   display: block;
@@ -182,7 +182,7 @@ select {
 }
 
 .navbar {
-  margin-top: -5%;
+  margin-top: -6%;
   color: white;
 }
 
@@ -288,10 +288,11 @@ label > input {
 }
 
 .opt {
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .surveyQnText {
-  padding-bottom: 2%;
+  padding-bottom: 4%;
+  padding-top:2%;
 }

@@ -54,7 +54,7 @@ $(function() {
             .ordinalColors(['#2B3D41', '#216869', '#56445D','#546A76'])
             .innerRadius(40);
         npsRowChart
-            .width(450).height(270)
+            .width(410).height(220)
             .dimension(nameDim)
             .group(npsScorePerName)
             .ordinalColors(['#98C1D9','#98C1D9','#98C1D9','#98C1D9','#EDBBB4'])
