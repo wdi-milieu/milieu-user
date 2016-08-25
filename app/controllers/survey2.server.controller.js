@@ -230,7 +230,7 @@ module.exports = {
       question3,
       question4,
       question5,
-      quesiton6
+      question6
     });
   }, //close index function
 
