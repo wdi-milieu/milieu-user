@@ -21,7 +21,7 @@ var survey_arr2 = [
     qn_num: "questionTwo",
     type: "radio",
     question_type: "with image",
-    question: "Who's bottle is this?",
+    question: "Whose bottle does this belong to?",
     image:"http://i.imgur.com/tHo8n0B.jpg",
     options: [
       {
