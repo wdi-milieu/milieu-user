@@ -6,15 +6,15 @@ var survey_arr = [
     options: [
       {
         value: 1,
-        text: "It’s an important part of my life. (I use this brand heavily, and would feel a loss without it)"
+        text: "It’s an important part of my life."
       },
       {
         value: 2,
-        text: "It’s part of my life, but not critical. (I use this brand sometimes but can find another brand to use easily)"
+        text: "It’s part of my life, but not critical."
       },
       {
         value: 3,
-        text: "I've used it once or twice. (I have tried the brand once or twice, but not on a regular basis)"
+        text: "I've used it once or twice."
       },
       {
         value: 4,
@@ -27,7 +27,7 @@ var survey_arr = [
     ]
   },
   {
-    question: "From a range of 1 to 10, 1 being the most unlikely, how likely are you to recommend each of these brands to your friends/colleagues or other people?",
+    question: "From a range of 1 to 10, 1 being the most unlikely, how likely are you to recommend each of these brands to your friends/colleagues?",
     name: "npsScore",
     type: "radio",
     options: [
@@ -80,15 +80,15 @@ var survey_arr = [
     options: [
       {
         value: 1,
-        text: "Experience with using the brand's product or services."
+        text: "Experience with brand's product or services."
       },
       {
         value: 2,
-        text: "Heard things about the brand from friends, family or colleagues."
+        text: "Heard things about brand from friends or family"
       },
       {
         value: 3,
-        text: "Gained a perception of the brand from advertising media."
+        text: "Gained a perception from advertising media."
       },
       {
         value: 4,

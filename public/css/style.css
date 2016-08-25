@@ -282,3 +282,16 @@ label > input {
 .radio-inline {
   font-size: 1.5em;
 }
+
+.radiobox {
+  text-align: center;
+}
+
+.opt {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.surveyQnText {
+  padding-bottom: 2%;
+}
