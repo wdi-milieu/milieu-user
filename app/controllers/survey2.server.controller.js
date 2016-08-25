@@ -28,8 +28,8 @@ Survey.aggregate([
   }
   },
   { $sort: { '_id': 1}}
-],function(err,result){
-  question1 = result;
+],function(err,result1){
+  question1 = result1;
 });
 
 
@@ -59,8 +59,8 @@ Survey.aggregate([
   }
   },
   { $sort: { '_id': 1}}
-],function(err,result){
-  question2 = result;
+],function(err,result2){
+  question2 = result2;
 });
 
 Survey.aggregate([
@@ -89,8 +89,8 @@ Survey.aggregate([
   }
   },
   { $sort: { '_id': 1}}
-],function(err,result){
-  question3 = result;
+],function(err,result3){
+  question3 = result3;
 });
 
 Survey.aggregate([
@@ -119,8 +119,8 @@ Survey.aggregate([
   }
   },
   { $sort: { '_id': 1}}
-],function(err,result){
-  question4 = result;
+],function(err,result4){
+  question4 = result4;
 });
 
 
@@ -145,8 +145,8 @@ Survey.aggregate([
   }
   },
   { $sort: { '_id': 1}}
-],function(err,result){
-  question5 = result;
+],function(err,result5){
+  question5 = result5;
 });
 
 
@@ -181,8 +181,8 @@ Survey.aggregate([
   }
   },
   { $sort: { '_id': 1}}
-],function(err,result){
-  question6 = result;
+],function(err,result6){
+  question6 = result6;
 });
 
 module.exports = {
@@ -190,12 +190,12 @@ module.exports = {
   index: function(req, res){
     //this is for api export & json things
 
-    var q1 = question1.result[0];
-    var q2 = question2.result[0];
-    var q3 = question3.result[0];
-    var q4 = question4.result[0];
-    var q5 = question5.result[0];
-    var q6 = question6.result[0];
+    var q1 = result1[0];
+    var q2 = result2[0];
+    var q3 = result3[0];
+    var q4 = result4[0];
+    var q5 = result5[0];
+    var q6 = result6[0];
 
     var classSurveyResult = {};
 
