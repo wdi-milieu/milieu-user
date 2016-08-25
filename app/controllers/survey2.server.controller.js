@@ -190,12 +190,12 @@ module.exports = {
   index: function(req, res){
     //this is for api export & json things
 
-    var q1 = question1[0];
-    var q2 = question2[0];
-    var q3 = question3[0];
-    var q4 = question4[0];
-    var q5 = question5[0];
-    var q6 = question6[0];
+    var q1 = question1.result[0];
+    var q2 = question2.result[0];
+    var q3 = question3.result[0];
+    var q4 = question4.result[0];
+    var q5 = question5.result[0];
+    var q6 = question6.result[0];
 
     var classSurveyResult = {};
 
