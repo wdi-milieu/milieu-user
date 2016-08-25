@@ -191,10 +191,10 @@ module.exports = {
     //this is for api export & json things
     //
     // mergeQuestionResult.push(_.extend({}, question1, question2, question3, question4, question5, question6));
-    Survey.find({}, function(err, result){
-      if (err) res.status(400).send(err);
-      res.json(result);
-    });
+    // Survey.find({}, function(err, result){
+    //   if (err) res.status(400).send(err);
+    //   res.json(result);
+    // });
     console.log(question1[0].opt1 + question1[0].opt2);
     console.log(question1[0].opt1 / (question1[0].opt1 + question1[0].opt2) );
 
